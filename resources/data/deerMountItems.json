@@ -1,0 +1,25 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"Life Size",
+            "imageSource":"resources/images/mounts/DeerLifeSize.png",
+            "fullSizeImageSource":"resources/images/species/fullSize/Deer.png",
+            "subOptionsUrl": "DeerLifeSizePoseItems.json"
+        },
+        {
+            "id":2,
+            "name":"Half",
+            "imageSource":"resources/images/mounts/DeerHalfSize.png",
+            "fullSizeImageSource":"resources/images/species/fullSize/Deer.png",
+            "subOptionsUrl": "DeerHalfSizePoseItems.json"
+        },
+        {
+            "id":3,
+            "name":"Shoulder",
+            "imageSource":"resources/images/mounts/DeerShoulderSize.png",
+            "fullSizeImageSource":"resources/images/species/fullSize/Deer.png",
+            "subOptionsUrl": "DeerShoulderSizePoseItems.json"
+        }
+    ]
+}

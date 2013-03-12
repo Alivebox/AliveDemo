@@ -1,0 +1,21 @@
+{
+
+    "createViewPort": true,
+
+    "localizationEnabled":false,
+
+    "viewsContainer": {
+
+        "package": "Framework.ux.view.SimpleViewsContainer",
+
+        "views": [
+            {
+                "name": "main",
+                "package": "Taxidermy.view.Main",
+                "default": true
+            }
+        ]
+
+    }
+
+}
