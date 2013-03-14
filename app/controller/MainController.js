@@ -5,6 +5,16 @@ Ext.define('Taxidermy.controller.MainController', {
     views: [
         'Main'
     ],
+    refs:[
+        {
+            ref:'selectSpecieView',
+            selector:'selectspecie [itemId=imageview]'
+        },
+        {
+            ref:'selectMountView',
+            selector:'selectmount [itemId=imageview]'
+        }
+    ],
 
     init:function () {
         this.control({
@@ -14,7 +24,7 @@ Ext.define('Taxidermy.controller.MainController', {
         });
     },
     onStepSelected: function(argSelectedIndex,argSelectedTab){
-        debugger;
+        argSelectedTab.fireEvent('initDataView');
     }
 
 });

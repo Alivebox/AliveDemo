@@ -1,14 +1,14 @@
-Ext.define('Taxidermy.store.DeerMountItems', {
+Ext.define('Taxidermy.store.MountItems', {
 
     extend: 'Ext.data.Store',
 
     id: 'deerMountItemsStore',
-    autoLoad: true,
+    autoLoad: false,
     model: 'Taxidermy.model.ImageItem',
 
     proxy: {
         type: 'ajax',
-        url: 'resources/data/deerMountItems.json',
+        url: '',
         reader: {
             type: 'json',
             root: 'data'

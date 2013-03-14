@@ -24,3 +24,9 @@
 .x-image-view .x-item-over .thumb {
     background:#aaaaaa;
 }
+.left-arrow {
+    background-image: url("../images/icons_logo/turn_left_up.png");
+}
+.right-arrow {
+    background-image: url("../images/icons_logo/turn_right_up.png");
+}

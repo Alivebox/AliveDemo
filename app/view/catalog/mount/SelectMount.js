@@ -5,7 +5,6 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
     layout:'column',
 
     initComponent:function () {
-        this.tmpDisplayImage = this.creatDisplayImage();
         this.items = [
             {
                 xtype: 'container',
@@ -17,7 +16,8 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
                     },
                     {
                         xtype: 'imageview',
-                        store: 'DeerMountItems',
+                        itemId: 'imageview',
+                        store: 'MountItems',
                         imageViewSelectionMode: Taxidermy.defaults.Constants.IMAGE_VIEW_SELECTION_MODE_SINGLE,
                         width: 600,
                         listeners: {
@@ -27,24 +27,14 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
                     }
                 ]
             },
-            this.tmpDisplayImage
+            {
+                xtype: 'previewimagedisplay',
+                itemId: 'previewimagedisplay'
+            }
         ];
         this.callParent(arguments);
     },
-    creatDisplayImage:function () {
-        var tmpChangingImage = Ext.create('Ext.Img', {
-            itemId:'displayFullImage',
-            src:'resources/images/species/fullSize/Deer.png',
-            border:2,
-            style:{
-                borderColor:'black',
-                borderStyle:'solid'
-            }
-        });
-        return tmpChangingImage
-    },
     onMountSelectionHandler: function(argImageView, argRecord){
-        debugger;
         this.fireEvent('mountSelected', argRecord.data);
     }
 

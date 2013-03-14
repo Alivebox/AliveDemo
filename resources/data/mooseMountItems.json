@@ -1,0 +1,22 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"Life Size",
+            "imageSource":"resources/images/mounts/MooseLifeSize.jpg",
+            "subOptionsUrl": "MooseLifeSizePoseItems.json"
+        },
+        {
+            "id":2,
+            "name":"Horns",
+            "imageSource":"resources/images/mounts/MooseHorns.jpg",
+            "subOptionsUrl": "MooseHornsPoseItems.json"
+        },
+        {
+            "id":3,
+            "name":"Shoulder",
+            "imageSource":"resources/images/mounts/MooseSoulder.jpg",
+            "subOptionsUrl": "MooseShoulderPoseItems.json"
+        }
+    ]
+}

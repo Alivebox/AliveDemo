@@ -18,10 +18,6 @@ Ext.define('Taxidermy.model.ImageItem', {
             type:'string'
         },
         {
-            name:'fullSizeImageSource',
-            type:'string'
-        },
-        {
             name:'subOptionsUrl',
             type:'string'
         }

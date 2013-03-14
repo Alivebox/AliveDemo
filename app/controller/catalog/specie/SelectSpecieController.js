@@ -13,19 +13,26 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
     ],
     refs:[
         {
-            ref:'displayFullImage',
-            selector:'selectspecie [itemId=displayFullImage]'
+            ref:'displayImage',
+            selector:'selectspecie [itemId=previewimagedisplay]'
         }
     ],
     init:function () {
         this.control({
             'selectspecie': {
-                specieSelected: this.onSpecieSelected
+                specieSelected: this.onSpecieSelected,
+                initDataView: this.onInitDataView,
+                afterrender: this.onSelectSpecieAfterRender
             }
         });
     },
     onSpecieSelected: function(argElement){
-        Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE,argElement.name);
-        this.getDisplayFullImage().setSrc(argElement.fullSizeImageSource);
+        Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE,argElement.name, argElement.subOptionsUrl);
+        this.getDisplayImage().loadPreviewImage();
+    },
+    onInitDataView: function(argOwnerCt){
+    },
+    onSelectSpecieAfterRender: function(argOwnerCt){
+        this.getDisplayImage().setRotationControllerEnabled(false);
     }
 });

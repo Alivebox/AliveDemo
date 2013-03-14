@@ -17,13 +17,13 @@ Ext.define('Taxidermy.view.Main', {
             },
             {
                 xtype:'selectmount',
-                title:'Mount'
-            },
-            {
-                title:'Pose'
+                title:'Type of Mount'
             },
             {
                 title:'Base'
+            },
+            {
+                title:'Pose'
             },
             {
                 title:'Habitat'

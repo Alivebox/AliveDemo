@@ -14,7 +14,7 @@ Ext.define('Taxidermy.ux.ImageView', {
         '<tpl for=".">',
         '<div class="thumb-wrap">',
         '<div class="thumb">',
-        '<img id="{id}" src="{imageSource}" fullSizeImage="{fullSizeImageSource}" title="{name}">',
+        '<img id="{id}" src="{imageSource}" title="{name}">',
         '</div>',
         '<span>{name}</span>',
         '</div>',

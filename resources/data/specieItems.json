@@ -4,42 +4,36 @@
             "id":1,
             "name":"Deer",
             "imageSource":"resources/images/species/Deer.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Deer.png",
             "subOptionsUrl": "deerMountItems.json"
         },
         {
             "id":2,
             "name":"Moose",
             "imageSource":"resources/images/species/Moose.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Moose.png",
             "subOptionsUrl": "mooseMountItems.json"
         },
         {
             "id":3,
             "name":"Porcupine",
             "imageSource":"resources/images/species/Porcupine.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Porcupine.png",
             "subOptionsUrl": "porcupineMountItems.json"
         },
         {
             "id":4,
             "name":"Rabbit",
             "imageSource":"resources/images/species/Rabbit.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Rabbit.png",
             "subOptionsUrl": "rabbitMountItems.json"
         },
         {
             "id":5,
             "name":"Fox",
             "imageSource":"resources/images/species/Fox.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Fox.png",
             "subOptionsUrl": "foxMountItems.json"
         },
         {
             "id":6,
             "name":"Wolf",
             "imageSource":"resources/images/species/Wolf.png",
-            "fullSizeImageSource":"resources/images/species/fullSize/Wolf.png",
             "subOptionsUrl": "wolfMountItems.json"
         }
     ]

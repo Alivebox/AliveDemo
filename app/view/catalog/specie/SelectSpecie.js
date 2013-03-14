@@ -5,7 +5,6 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
     layout: 'column',
 
     initComponent:function () {
-        this.tmpDisplayImage =  this.creatDisplayImage();
         this.items = [
             {
                 xtype: 'container',
@@ -17,8 +16,9 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
                     },
                     {
                         xtype: 'imageview',
+                        itemId: 'imageview',
                         store: 'SpecieItems',
-                        imageViewSelectionMode: Taxidermy.defaults.Constants.IMAGE_VIEW_SELECTION_MODE_SIMPLE,
+                        imageViewSelectionMode: Taxidermy.defaults.Constants.IMAGE_VIEW_SELECTION_MODE_SINGLE,
                         width: 600,
                         listeners: {
                             scope: this,
@@ -27,21 +27,12 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
                     }
                 ]
             },
-            this.tmpDisplayImage
+            {
+                xtype: 'previewimagedisplay',
+                itemId: 'previewimagedisplay'
+            }
         ];
         this.callParent(arguments);
-    },
-    creatDisplayImage: function(){
-        var tmpChangingImage = Ext.create('Ext.Img', {
-            itemId: 'displayFullImage',
-            src: 'resources/images/species/fullSize/Deer.png',
-            border: 2,
-            style: {
-                borderColor: 'black',
-                borderStyle: 'solid'
-            }
-        });
-        return tmpChangingImage
     },
     onSpecieSelectionHandler: function(argImageView, argRecord){
         this.fireEvent('specieSelected', argRecord.data);

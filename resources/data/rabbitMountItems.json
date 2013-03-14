@@ -1,0 +1,10 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"Life Size",
+            "imageSource":"resources/images/mounts/RabbitLifeSize.jpg",
+            "subOptionsUrl": "RabbitLifeSizePoseItems.json"
+        }
+    ]
+}

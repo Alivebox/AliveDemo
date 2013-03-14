@@ -1,0 +1,16 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"Life Size",
+            "imageSource":"resources/images/mounts/FoxLifeSize.jpg",
+            "subOptionsUrl":"FoxLifeSizePoseItems.json"
+        },
+        {
+            "id":2,
+            "name":"Shoulder",
+            "imageSource":"resources/images/mounts/FoxShoulder.jpg",
+            "subOptionsUrl":"FoxShoulderPoseItems.json"
+        }
+    ]
+}
