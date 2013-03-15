@@ -20,6 +20,10 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         {
             ref:'imageView',
             selector:'selectmount [itemId=imageview]'
+        },
+        {
+            ref:'mainview',
+            selector:'main'
         }
     ],
     init:function () {
@@ -31,6 +35,13 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         });
     },
     onMountSelected: function(argElement){
+        if(Taxidermy.util.TaxidermyUrlUtil.isSelectOptionChanged(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name)){
+            Taxidermy.util.TaxidermyUrlUtil.clearDependentOptionsBelow(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT);
+            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_RESETED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+            this.getDisplayImage().resetCurrentImageAngleIndex();
+        }else{
+            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+        }
         Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name, argElement.subOptionsUrl);
         this.getDisplayImage().loadPreviewImage();
     },
@@ -41,7 +52,8 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
             this.getImageView().store.proxy.url = tmpUrl;
             this.getImageView().store.load();
             this.storeDataSource = tmpSpecieSelectedOptions.storeSource;
-            this.getDisplayImage().setPreviewImage(Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH);
+            this.getDisplayImage().resetCurrentImageDisplay();
+            this.getDisplayImage().resetCurrentImageAngleIndex();
         }
     }
 });

@@ -15,12 +15,20 @@ Ext.define('Taxidermy.util.TaxidermyUrlUtil', {
         }
         this.configurationOptions.push({'type':argType, 'options':[argValue], 'storeSource':argSource});
     },
+    clearDependentOptionsBelow: function(argType){
+        for (var revertIndex = this.configurationOptions.length-1; revertIndex>=0; revertIndex--) {
+            var tmpElement = this.configurationOptions[revertIndex];
+            if (tmpElement.type != argType) {
+                this.configurationOptions.pop();
+            }
+        }
+    },
     isSelectOptionChanged:function (argType, argValue) {
         var tmpElement = this.getOptionByType(argType);
         if (tmpElement != undefined) {
-            return tmpElement.options === argValue;
+            return tmpElement.options != argValue;
         }
-        return true;
+        return false;
     },
     selectMultipleOption:function (argType, argValue, argSource) {
         var tmpElement = this.getOptionByType(argType);
@@ -62,7 +70,7 @@ Ext.define('Taxidermy.util.TaxidermyUrlUtil', {
                 tmpImageUrl = tmpImageUrl+ (tmpOption.toLowerCase()).replace(" ", "")+"_";
             }
         }
-        return tmpImageUrl+argAngle+".png";
+        return tmpImageUrl+argAngle+Taxidermy.defaults.Constants.IMAGE_FILES_EXTENSION;
     }
 
 

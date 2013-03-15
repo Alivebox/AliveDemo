@@ -16,6 +16,7 @@ Ext.define('Taxidermy.defaults.Constants',{
         IMAGE_PREVIEW_LEFT_ARROW_PATH: 'resources/images/icons_logo/turn_left_up.png',
         IMAGE_PREVIEW_RIGHT_ARROW_PATH: 'resources/images/icons_logo/turn_right_up.png',
         IMAGE_PREVIEW_SUFIX_PATH: 'resources/images/preview/',
+        IMAGE_FILES_EXTENSION: '.png',
         IMAGE_PREVIEW_ANGLE_FRONT: 'front',
         IMAGE_PREVIEW_ANGLE_LEFT_45: 'left45',
         IMAGE_PREVIEW_ANGLE_LEFT_90: 'left90',
@@ -27,7 +28,17 @@ Ext.define('Taxidermy.defaults.Constants',{
         IMAGE_PREVIEW_ANGLE_INDEX_RIGHT_45: 3,
         IMAGE_PREVIEW_ANGLE_INDEX_RIGHT_90: 4,
         IMAGE_PREVIEW_ROTATE_ANGLE_LEFT: -1,
-        IMAGE_PREVIEW_ROTATE_ANGLE_RIGHT: 1
+        IMAGE_PREVIEW_ROTATE_ANGLE_RIGHT: 1,
+        TAB_PANEL_ENABLE_OPTIONS_SELECTED_SPECIE: [0,1],
+        TAB_PANEL_ENABLE_OPTIONS_SELECTED_MOUNT: [0,1,2],
+        TAB_PANEL_ENABLE_OPTIONS_SELECTED_BASE: [0,1,2,3],
+        TAB_PANEL_ENABLE_OPTIONS_SELECTED_POSE: [0,1,2,3,4],
+        TAB_PANEL_DISABLE_OPTIONS_RESETED_SPECIE: [2,3,4],
+        TAB_PANEL_DISABLE_OPTIONS_RESETED_MOUNT: [3,4],
+        TAB_PANEL_DISABLE_OPTIONS_RESETED_BASE: [4],
+        TAB_PANEL_DISABLE_OPTIONS_UNSELECTED_SPECIE: [1,2,3,4],
+        TAB_PANEL_BUTTON_DISABLED: true,
+        TAB_PANEL_BUTTON_ENABLED: false
     }
 
 });
