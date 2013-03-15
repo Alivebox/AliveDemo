@@ -1,16 +1,18 @@
 Ext.Loader.addClassPathMappings({
   "Ext": "ext/src",
   "Taxidermy": "app",
-  "Ext.ux.GroupTreeChunker": "ext/src/ux/GroupTabPanel.js"
+  "Ext.rtl.EventObjectImpl": "ext/src/rtl/EventObject.js"
 });Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.BoxReorderer": [],
   "Ext.ux.grid.filter.Filter": [],
+  "Ext.ux.GroupTabRenderer": [],
   "Ext.ux.ajax.DataSimlet": [],
   "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.FieldReplicator": [],
   "Ext.ux.grid.filter.ListFilter": [],
   "Ext.ux.ajax.XmlSimlet": [],
   "Ext.ux.event.Driver": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
   "Taxidermy.controller.Main": [],
   "Ext.ux.DataView.DragSelector": [],
   "Ext.ux.grid.menu.ListMenu": [],
@@ -23,14 +25,13 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.grid.filter.StringFilter": [],
   "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.layout.Center": [],
-  "Ext.ux.CheckColumn": [],
   "Ext.ux.PreviewPlugin": [],
   "Ext.ux.DataView.Animated": [],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [],
   "Ext.ux.statusbar.StatusBar": [
     "Ext.ux.StatusBar"
   ],
@@ -52,8 +53,11 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
   "Ext.ux.form.SearchField": [],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "Ext.ux.LiveSearchGridPanel": [],
+  "Ext.ux.DataTip": [],
   "Ext.ux.grid.filter.DateFilter": [],
+  "Ext.ux.grid.filter.DateTimeFilter": [],
   "Ext.ux.TreePicker": [],
   "Ext.ux.form.ItemSelector": [
     "Ext.ux.ItemSelector"
@@ -67,6 +71,9 @@ Ext.Loader.addClassPathMappings({
 });Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.BoxReorderer": [],
   "Ext.ux.grid.filter.Filter": [],
+  "Ext.ux.GroupTabRenderer": [
+    "plugin.grouptabrenderer"
+  ],
   "Ext.ux.ajax.DataSimlet": [],
   "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.FieldReplicator": [],
@@ -77,6 +84,7 @@ Ext.Loader.addClassPathMappings({
     "simlet.xml"
   ],
   "Ext.ux.event.Driver": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
   "Taxidermy.controller.Main": [],
   "Ext.ux.DataView.DragSelector": [],
   "Ext.ux.grid.menu.ListMenu": [],
@@ -96,12 +104,8 @@ Ext.Loader.addClassPathMappings({
     "gridfilter.string"
   ],
   "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.layout.Center": [
     "layout.ux.center"
-  ],
-  "Ext.ux.CheckColumn": [
-    "widget.checkcolumn"
   ],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
@@ -112,6 +116,9 @@ Ext.Loader.addClassPathMappings({
     "widget.eventrecordermanager"
   ],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [
+    "plugin.celldragdrop"
+  ],
   "Ext.ux.statusbar.StatusBar": [
     "widget.statusbar"
   ],
@@ -124,9 +131,7 @@ Ext.Loader.addClassPathMappings({
     "gridfilter.numeric"
   ],
   "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.ux.RowExpander": [
-    "plugin.rowexpander"
-  ],
+  "Ext.ux.RowExpander": [],
   "Ext.ux.event.Recorder": [],
   "Ext.ux.event.Player": [],
   "Ext.ux.ajax.SimManager": [],
@@ -149,9 +154,16 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.form.SearchField": [
     "widget.searchfield"
   ],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "Ext.ux.LiveSearchGridPanel": [],
+  "Ext.ux.DataTip": [
+    "plugin.datatip"
+  ],
   "Ext.ux.grid.filter.DateFilter": [
     "gridfilter.date"
+  ],
+  "Ext.ux.grid.filter.DateTimeFilter": [
+    "gridfilter.datetime"
   ],
   "Ext.ux.TreePicker": [
     "widget.treepicker"
