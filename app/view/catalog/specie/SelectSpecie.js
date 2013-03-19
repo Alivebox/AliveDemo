@@ -3,16 +3,17 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
     extend:'Ext.Container',
     xtype:'selectspecie',
     layout: 'column',
-
+    cls: 'item-selection',
     initComponent:function () {
         this.items = [
             {
                 xtype: 'container',
+                itemId: 'specieImageViewContainer',
                 layout: 'vbox',
                 items:[
                     {
                         xtype:'label',
-                        text:'Select Type of Animal'
+                        text:'Select Animal'
                     },
                     {
                         xtype: 'imageview',

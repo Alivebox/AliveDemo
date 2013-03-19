@@ -1,0 +1,26 @@
+@import '../../defaults';
+
+.main-tab-container {
+  background-color: transparent;
+}
+
+.main-tab-container span{
+}
+
+.main-toolbar{
+  background: none;
+  border: none;
+}
+
+.main-card-container {
+  background: $localbackgroundcolor;
+}
+
+/*
+.toolbar-buttons{
+  background-color: transparent !important;
+  border-color: transparent !important;
+  border:2px solid;
+  border-radius:25px;
+}
+*/

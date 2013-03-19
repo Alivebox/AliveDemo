@@ -39,9 +39,7 @@ Ext.application({
     },
 
     onConfigLoaded: function(argConfigFileObject){
-        Framework.Main.init({
-            config: argConfigFileObject
-        });
+        Framework.Main.init(argConfigFileObject);
     },
 
     onConfigFail:function () {

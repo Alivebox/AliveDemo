@@ -1,12 +1,19 @@
 {
 
-    "createViewPort": true,
+    "localizationManagement": {
+        "enabled": false
+    },
 
-    "localizationEnabled":false,
+    "errorsManagement": {
+        "enabled": false
+    },
 
-    "viewsContainer": {
+    "viewsManagement": {
 
-        "package": "Framework.ux.view.SimpleViewsContainer",
+        "enabled": true,
+
+        "headerPackage": "Taxidermy.view.Header",
+        "viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
 
         "views": [
             {

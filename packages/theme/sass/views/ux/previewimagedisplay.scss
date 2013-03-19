@@ -1,0 +1,33 @@
+.left-arrow {
+  background-image: url("../images/icons_logo/turn_left_up.png");
+  border: none;
+  position:relative;
+  left:75px;
+  top:250px;
+}
+.right-arrow {
+  background-image: url("../images/icons_logo/turn_right_up.png");
+  border: none;
+  outline: 0;
+  position:relative;
+  right:75px;
+  top:250px;
+}
+
+.x-left-arrow-over{
+  background-image: url("../images/icons_logo/turn_left_over.png");
+}
+.x-right-arrow-over{
+  background-image: url("../images/icons_logo/turn_right_over.png");
+}
+.x-left-arrow-pressed{
+  background-image: url("../images/icons_logo/turn_left_down.png");
+}
+.x-right-arrow-pressed{
+  background-image: url("../images/icons_logo/turn_right_down.png");
+}
+
+.x-display-image {
+  height:600px;
+  width:600px;
+}

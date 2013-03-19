@@ -12,6 +12,7 @@ Ext.define('Taxidermy.defaults.Constants',{
         IMAGE_VIEW_SELECTION_MODE_MULTIPLE: "MULTI",
         TAXIDERMY_DATA_JSON_PATH: 'resources/data/',
         TAXIDERMY_DEFAULT_IMAGE_PATH: 'resources/images/preview/default.png',
+        TAXIDERMY_LOGO_IMAGE_PATH: 'resources/images/icons_logo/logo_mckenzie.png',
         TAXIDERMY_IMAGE_NOT_AVAILABLE_PATH: 'resources/images/preview/image_not_available.png',
         IMAGE_PREVIEW_LEFT_ARROW_PATH: 'resources/images/icons_logo/turn_left_up.png',
         IMAGE_PREVIEW_RIGHT_ARROW_PATH: 'resources/images/icons_logo/turn_right_up.png',

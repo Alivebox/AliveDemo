@@ -13,14 +13,6 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
         this.createImageAnglesArray();
     },
 
-    resetCurrentImageAngleIndex: function(){
-        this.currentImageAngleIndex = Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_LEFT_90;
-    },
-
-    resetCurrentImageDisplay: function(){
-        this.previewImageDisplay.setSrc(Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH);
-    },
-
     initComponent:function () {
         this.previewImageDisplay = this.creatDisplayImage();
         this.leftRotator = this.creatLeftRotator();
@@ -33,11 +25,21 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
         this.callParent(arguments);
     },
 
+    resetCurrentImageAngleIndex: function(){
+        this.currentImageAngleIndex = Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_LEFT_90;
+    },
+
+    resetCurrentImageDisplay: function(){
+        this.previewImageDisplay.setSrc(Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH);
+    },
+
     creatRightRotator:function () {
-        var tmpRightRotator = Ext.create('Ext.Button', {
+        var tmpRightRotator = Ext.create('Ext.button.Button', {
+            cls:'right-arrow',
+            overCls: 'right-arrow-over',
+            pressedCls: 'right-arrow-pressed',
             width:52,
             height:84,
-            cls:'right-arrow',
             listeners:{
                 scope:this,
                 click:this.rotateRight
@@ -47,10 +49,12 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     },
 
     creatLeftRotator:function () {
-        var tmpLeftRotator = Ext.create('Ext.Button', {
+        var tmpLeftRotator = Ext.create('Ext.button.Button', {
+            cls:'left-arrow',
+            overCls: 'left-arrow-over',
+            pressedCls: 'left-arrow-pressed',
             width:52,
             height:84,
-            cls:'left-arrow',
             listeners:{
                 scope:this,
                 click:this.rotateLeft
@@ -62,7 +66,8 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     creatDisplayImage:function () {
         var tmpChangingImage = Ext.create('Ext.Img', {
             itemId:'displayFullImage',
-            src:Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH
+            src:Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH,
+            cls: 'display-image'
         });
         return tmpChangingImage
     },

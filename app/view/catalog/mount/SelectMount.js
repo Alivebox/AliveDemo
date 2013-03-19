@@ -3,7 +3,7 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
     extend:'Ext.container.Container',
     xtype:'selectmount',
     layout:'column',
-
+    cls: 'item-selection',
     initComponent:function () {
         this.items = [
             {

@@ -19,9 +19,15 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
         {
             ref:'mainview',
             selector:'main'
+        },
+        {
+            ref: 'specieImageViewContainer',
+            selector: 'selectspecie container[itemId=specieImageViewContainer]'
         }
     ],
     init:function () {
+        var tmpSpecieItemsStore = Ext.getStore('SpecieItems');
+        tmpSpecieItemsStore.addListener('load',this.onSpecieItemsLoaded,this);
         this.control({
             'selectspecie': {
                 specieSelected: this.onSpecieSelected,
@@ -30,6 +36,11 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
             }
         });
     },
+
+    onSpecieItemsLoaded: function(){
+//        this.getSpecieImageViewContainer().doLayout();
+    },
+
     onSpecieSelected: function(argElement){
         if(Taxidermy.util.TaxidermyUrlUtil.isSelectOptionChanged(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE,argElement.name)){
             Taxidermy.util.TaxidermyUrlUtil.clearDependentOptionsBelow(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE);
@@ -44,6 +55,6 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
     onInitDataView: function(argOwnerCt){
     },
     onSelectSpecieAfterRender: function(argOwnerCt){
-        this.getDisplayImage().setRotationControllerEnabled(false);
+//        this.getDisplayImage().setRotationControllerEnabled(false);
     }
 });

@@ -3,7 +3,8 @@ Ext.define('Taxidermy.controller.MainController', {
     extend: "Ext.app.Controller",
 
     views: [
-        'Main'
+        'Main',
+        'Header'
     ],
     refs:[
         {
