@@ -39,6 +39,7 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
             cls:'right-arrow',
             overCls: 'right-arrow-over',
             pressedCls: 'right-arrow-pressed',
+            disabledCls: 'x-right-arrow-disabled',
             width:52,
             height:84,
             listeners:{
@@ -54,6 +55,7 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
             cls:'left-arrow',
             overCls: 'left-arrow-over',
             pressedCls: 'left-arrow-pressed',
+            disabledCls: 'x-left-arrow-disabled',
             width:52,
             height:84,
             listeners:{

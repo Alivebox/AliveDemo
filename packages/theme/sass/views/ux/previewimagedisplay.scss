@@ -26,7 +26,12 @@
 .x-right-arrow-pressed{
   background-image: url("../images/icons_logo/turn_right_down.png");
 }
-
+.x-left-arrow-disabled{
+  background-image: url("");
+}
+.x-right-arrow-disabled{
+  background-image: url("");
+}
 .display-image {
   background-image: url(../images/preview/default.png);
   background-repeat: no-repeat;

@@ -9652,6 +9652,14 @@ svg, vml {
   background-image: url("../images/icons_logo/turn_right_down.png");
 }
 
+.x-left-arrow-disabled {
+  background-image: url("");
+}
+
+.x-right-arrow-disabled {
+  background-image: url("");
+}
+
 .display-image {
   background-image: url(../images/preview/default.png);
   background-repeat: no-repeat;
@@ -9689,7 +9697,7 @@ svg, vml {
 
 .simple-views-container {
   background-color: #3f5368;
-  width: 1400px !important;
+  width: 1200px !important;
   height: 800px !important;
   margin: 0px auto !important;
 }

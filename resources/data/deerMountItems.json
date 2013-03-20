@@ -8,12 +8,6 @@
         },
         {
             "id":2,
-            "name":"Half",
-            "imageSource":"resources/images/mounts/DeerHalfSize.png",
-            "subOptionsUrl": "DeerHalfSizePoseItems.json"
-        },
-        {
-            "id":3,
             "name":"Shoulder",
             "imageSource":"resources/images/mounts/DeerShoulder.png",
             "subOptionsUrl": "DeerShoulderPoseItems.json"

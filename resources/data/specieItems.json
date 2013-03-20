@@ -14,24 +14,12 @@
         },
         {
             "id":3,
-            "name":"Porcupine",
-            "imageSource":"resources/images/species/Porcupine.png",
-            "subOptionsUrl": "porcupineMountItems.json"
-        },
-        {
-            "id":4,
-            "name":"Rabbit",
-            "imageSource":"resources/images/species/Rabbit.png",
-            "subOptionsUrl": "rabbitMountItems.json"
-        },
-        {
-            "id":5,
             "name":"Fox",
             "imageSource":"resources/images/species/Fox.png",
             "subOptionsUrl": "foxMountItems.json"
         },
         {
-            "id":6,
+            "id":4,
             "name":"Wolf",
             "imageSource":"resources/images/species/Wolf.png",
             "subOptionsUrl": "wolfMountItems.json"
