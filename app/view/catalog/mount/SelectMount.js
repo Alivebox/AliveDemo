@@ -16,7 +16,7 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
                     },
                     {
                         xtype: 'imageview',
-                        itemId: 'imageview',
+                        itemId: 'mountimageview',
                         store: 'MountItems',
                         imageViewSelectionMode: Taxidermy.defaults.Constants.IMAGE_VIEW_SELECTION_MODE_SINGLE,
                         width: 600,

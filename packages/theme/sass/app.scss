@@ -7,8 +7,10 @@ $theme-name: 'theme';
 @import 'ext4/default/all';
 @import 'views/ux/imageview';
 @import 'views/ux/previewimagedisplay';
+@import 'views/ux/previewimagecontainer';
 @import 'views/main/main';
 @import 'views/main/header';
 @import 'views/main/simpleviewscontainer';
 @import 'views/main/maintabcontainer';
+@import 'views/main/maintoolbarbuttons';
 

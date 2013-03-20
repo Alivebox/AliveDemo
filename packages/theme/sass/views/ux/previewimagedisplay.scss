@@ -27,7 +27,11 @@
   background-image: url("../images/icons_logo/turn_right_down.png");
 }
 
-.x-display-image {
-  height:600px;
-  width:600px;
+.display-image {
+  background-image: url(../images/preview/default.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 600px;
+  height: 600px;
 }
+

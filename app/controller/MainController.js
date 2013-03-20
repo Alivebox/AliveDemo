@@ -4,6 +4,7 @@ Ext.define('Taxidermy.controller.MainController', {
 
     views: [
         'Main',
+        'MainTabContainer',
         'Header'
     ],
     refs:[
@@ -16,14 +17,14 @@ Ext.define('Taxidermy.controller.MainController', {
             selector:'selectmount [itemId=imageview]'
         },
         {
-            ref:'mainview',
-            selector:'main'
+            ref:'mainTabContainer',
+            selector:'maintabcontainer'
         }
     ],
 
     init:function () {
         this.control({
-            'main': {
+            'maintabcontainer': {
                 afterrender: this.onAfterRender,
                 stepSelected: this.onStepSelected
             }
@@ -35,7 +36,7 @@ Ext.define('Taxidermy.controller.MainController', {
     },
 
     disableDefaultTabs: function(){
-        this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_UNSELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+        this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_UNSELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
     },
 
     onStepSelected: function(argSelectedIndex,argSelectedTab){

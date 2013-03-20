@@ -20,7 +20,6 @@ Ext.define('Taxidermy.ux.ImageView', {
         '</div>',
         '</tpl>'
     ],
-    
     initComponent: function() {
         this.getSelectionModel().setSelectionMode(this.imageViewSelectionMode);
         this.callParent();

@@ -4,6 +4,7 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     xtype:'previewimagedisplay',
     layout:'column',
     isItemSelected: undefined,
+    cls: 'preview-image-container',
 
     constructor:function () {
         this.callParent(arguments);
@@ -66,7 +67,6 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     creatDisplayImage:function () {
         var tmpChangingImage = Ext.create('Ext.Img', {
             itemId:'displayFullImage',
-            src:Taxidermy.defaults.Constants.TAXIDERMY_DEFAULT_IMAGE_PATH,
             cls: 'display-image'
         });
         return tmpChangingImage

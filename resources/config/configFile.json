@@ -12,7 +12,6 @@
 
         "enabled": true,
 
-        "headerPackage": "Taxidermy.view.Header",
         "viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
 
         "views": [

@@ -17,12 +17,16 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
             selector:'selectspecie [itemId=previewimagedisplay]'
         },
         {
-            ref:'mainview',
-            selector:'main'
+            ref:'mainTabContainer',
+            selector:'maintabcontainer'
         },
         {
             ref: 'specieImageViewContainer',
             selector: 'selectspecie container[itemId=specieImageViewContainer]'
+        },
+        {
+            ref: 'specieImageview',
+            selector: 'selectspecie imageview[itemId=specieImageview]'
         }
     ],
     init:function () {
@@ -38,23 +42,40 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
     },
 
     onSpecieItemsLoaded: function(){
-//        this.getSpecieImageViewContainer().doLayout();
+        this.fixImageViewLayoutProblem();
+    },
+
+    fixImageViewLayoutProblem: function(){
+        this.getSpecieImageview().setVisible(false);
+        Ext.defer(function(){
+            this.getSpecieImageview().setVisible(true);
+        },500,this);
     },
 
     onSpecieSelected: function(argElement){
         if(Taxidermy.util.TaxidermyUrlUtil.isSelectOptionChanged(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE,argElement.name)){
             Taxidermy.util.TaxidermyUrlUtil.clearDependentOptionsBelow(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE);
-            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_RESETED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+            if(argElement.name == "Deer"){
+                this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+            }
+            else {
+                this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_UNSELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+            }
             this.getDisplayImage().resetCurrentImageAngleIndex();
         }else{
-            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+            if(argElement.name == "Deer"){
+                this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_SPECIE, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+            }
         }
         Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE,argElement.name, argElement.subOptionsUrl);
         this.getDisplayImage().loadPreviewImage();
+        if(argElement.name != "Deer"){
+            this.getDisplayImage().setRotationControllerEnabled(false);
+        }
     },
     onInitDataView: function(argOwnerCt){
     },
     onSelectSpecieAfterRender: function(argOwnerCt){
-//        this.getDisplayImage().setRotationControllerEnabled(false);
+        this.getDisplayImage().setRotationControllerEnabled(false);
     }
 });

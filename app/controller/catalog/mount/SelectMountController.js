@@ -18,15 +18,17 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
             selector:'selectmount [itemId=previewimagedisplay]'
         },
         {
-            ref:'imageView',
-            selector:'selectmount [itemId=imageview]'
+            ref:'mountImageView',
+            selector:'selectmount [itemId=mountimageview]'
         },
         {
-            ref:'mainview',
-            selector:'main'
+            ref:'mainTabContainer',
+            selector:'maintabcontainer'
         }
     ],
     init:function () {
+        var tmpMountItemsStore = Ext.getStore('MountItems');
+        tmpMountItemsStore.addListener('load',this.onMountItemsLoaded,this);
         this.control({
             'selectmount': {
                 mountSelected: this.onMountSelected,
@@ -37,10 +39,10 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
     onMountSelected: function(argElement){
         if(Taxidermy.util.TaxidermyUrlUtil.isSelectOptionChanged(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name)){
             Taxidermy.util.TaxidermyUrlUtil.clearDependentOptionsBelow(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT);
-            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_RESETED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+            this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_DISABLE_OPTIONS_RESETED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
             this.getDisplayImage().resetCurrentImageAngleIndex();
         }else{
-            this.getMainview().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+            this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
         }
         Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name, argElement.subOptionsUrl);
         this.getDisplayImage().loadPreviewImage();
@@ -49,11 +51,22 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         var tmpSpecieSelectedOptions = Taxidermy.util.TaxidermyUrlUtil.getOptionByType(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE);
         if(this.storeDataSource == undefined || this.storeDataSource != tmpSpecieSelectedOptions.storeSource){
             var tmpUrl = Taxidermy.defaults.Constants.TAXIDERMY_DATA_JSON_PATH + tmpSpecieSelectedOptions.storeSource;
-            this.getImageView().store.proxy.url = tmpUrl;
-            this.getImageView().store.load();
+            this.getMountImageView().store.proxy.url = tmpUrl;
+            this.getMountImageView().store.load();
             this.storeDataSource = tmpSpecieSelectedOptions.storeSource;
             this.getDisplayImage().resetCurrentImageDisplay();
             this.getDisplayImage().resetCurrentImageAngleIndex();
+            this.getDisplayImage().setRotationControllerEnabled(false);
         }
+    },
+    onMountItemsLoaded: function(){
+        this.fixImageViewLayoutProblem();
+    },
+
+    fixImageViewLayoutProblem: function(){
+        this.getMountImageView().setVisible(false);
+        Ext.defer(function(){
+            this.getMountImageView().setVisible(true);
+        },500,this);
     }
 });
