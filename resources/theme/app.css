@@ -9623,7 +9623,7 @@ svg, vml {
   background-image: url("../images/icons_logo/turn_left_up.png");
   border: none;
   position: relative;
-  left: 75px;
+  right: 75px;
   top: 250px;
 }
 
@@ -9632,7 +9632,7 @@ svg, vml {
   border: none;
   outline: 0;
   position: relative;
-  right: 75px;
+  left: 75px;
   top: 250px;
 }
 
@@ -9699,7 +9699,7 @@ svg, vml {
   background-color: #3f5368;
   width: 1200px !important;
   height: 800px !important;
-  margin: 0px auto !important;
+  margin: 0 auto !important;
 }
 
 .main-tab-container {
@@ -9717,6 +9717,13 @@ svg, vml {
 
 .toolbar-buttons {
   color: #000000 !important;
-  background-color: #cccccc !important;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, white 0%, #b0b3b8 99%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(99%, #b0b3b8));
+  background: -webkit-linear-gradient(top, white 0%, #b0b3b8 99%);
+  background: -o-linear-gradient(top, white 0%, #b0b3b8 99%);
+  background: -ms-linear-gradient(top, white 0%, #b0b3b8 99%);
+  background: linear-gradient(to bottom, #ffffff 0%, #b0b3b8 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#b0b3b8',GradientType=0 );
   border-radius: 5px 5px 0px 0px;
 }

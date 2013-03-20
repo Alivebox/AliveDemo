@@ -19,9 +19,9 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
         this.leftRotator = this.creatLeftRotator();
         this.rightRotator = this.creatRightRotator();
         this.items = [
-            this.leftRotator,
+            this.rightRotator,
             this.previewImageDisplay,
-            this.rightRotator
+            this.leftRotator
         ];
         this.callParent(arguments);
     },
