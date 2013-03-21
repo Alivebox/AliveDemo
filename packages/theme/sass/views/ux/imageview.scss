@@ -25,12 +25,12 @@
   overflow: hidden;
   text-align: center;
   color: $whitetextcolor;
-  font-weight: bold;
-  font-size: 14px;
+  //font-weight: bold;
+  font-size: 18px;
 }
 
 .x-image-view .x-item-selected .thumb {
-  background: $redselectedcolor;
+  background: $redselectedcolor !important;
 }
 
 .x-image-view .x-item-over .thumb {

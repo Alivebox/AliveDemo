@@ -3,7 +3,6 @@ Ext.define('Taxidermy.view.MainTabContainer', {
     xtype:'maintabcontainer',
     cls: 'main-tab-container',
     toolbarCls: 'main-toolbar',
-    toolbarButtonsCls: 'toolbar-buttons',
     cardContainerCls: 'main-card-container',
     requires:[
         'Taxidermy.view.catalog.specie.SelectSpecie'

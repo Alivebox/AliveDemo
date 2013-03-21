@@ -4,7 +4,8 @@
   background-color: $globalbackgroundcolor;
 }
 
-.main-tab-container span{
+.main-card-container {
+  background: $localbackgroundcolor;
 }
 
 .main-toolbar{
@@ -12,6 +13,38 @@
   border: none;
 }
 
-.main-card-container {
-  background: $localbackgroundcolor;
+.main-toolbar .x-btn{
+  background: $whitetextcolor;
+  background: -moz-linear-gradient(top, $whitetextcolor 0%, $graytextcolor 99%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$whitetextcolor), color-stop(99%,$graytextcolor));
+  background: -webkit-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
+  background: -o-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
+  background: -ms-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
+  background: linear-gradient(to bottom, $whitetextcolor 0%,$graytextcolor 99%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$whitetextcolor', endColorstr='$graytextcolor',GradientType=0 );
+  border-radius:5px 5px 0px 0px;
+  border: none !important;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-toolbar .x-btn span{
+  //font-weight: bold;
+  color: $blacktextcolor;
+  font-size: 16px;
+}
+
+.main-toolbar .x-pressed{
+  color: $whitetextcolor !important;
+  background: $redselectedcolor !important;
+}
+
+.main-toolbar .x-pressed{
+  background: $redselectedcolor !important;
+}
+
+.main-toolbar .x-pressed span{
+  color: $whitetextcolor !important;
 }
