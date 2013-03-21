@@ -9,7 +9,7 @@ $images_dir = File.join("images")
 # Compass configurations
 sass_path = dir
 css_path = File.join("..", "..", "..", "resources", "theme")
-output_style = :expanded
+output_style = :compressed
 environment = :production
 
 # Disable warnings during sass compilation about missing paths to images
