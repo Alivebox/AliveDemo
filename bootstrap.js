@@ -1,127 +1,164 @@
 Ext.Loader.addClassPathMappings({
   "Ext": "ext/src",
   "Taxidermy": "app",
-  "Ext.rtl.EventObjectImpl": "ext/src/rtl/EventObject.js"
+  "Framework": "framework",
+  "Ext.ux.GroupTreeChunker": "ext/src/ux/GroupTabPanel.js"
 });Ext.ClassManager.addNameAlternateMappings({
-  "Ext.ux.BoxReorderer": [],
-  "Ext.ux.grid.filter.Filter": [],
-  "Ext.ux.GroupTabRenderer": [],
-  "Ext.ux.ajax.DataSimlet": [],
+  "Taxidermy.view.MainTabContainer": [],
+  "Framework.ux.UxDependencies": [],
   "Ext.ux.grid.TransformGrid": [],
-  "Ext.ux.FieldReplicator": [],
-  "Ext.ux.grid.filter.ListFilter": [],
-  "Ext.ux.ajax.XmlSimlet": [],
+  "Ext.ux.ajax.DataSimlet": [],
+  "Taxidermy.view.catalog.specie.SelectSpecie": [],
   "Ext.ux.event.Driver": [],
-  "Ext.ux.dd.PanelFieldDragZone": [],
-  "Taxidermy.controller.Main": [],
+  "Ext.ux.ajax.XmlSimlet": [],
   "Ext.ux.DataView.DragSelector": [],
   "Ext.ux.grid.menu.ListMenu": [],
   "Taxidermy.view.Main": [],
-  "Ext.ux.GMapPanel": [],
+  "Taxidermy.controller.catalog.specie.SelectSpecieController": [],
+  "Framework.util.MD5Util": [],
+  "Framework.ux.container.TabContainer": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
-  "Ext.ux.DataView.LabelEditor": [],
-  "Ext.ux.GroupTabPanel": [],
-  "Ext.ux.grid.filter.StringFilter": [],
-  "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.ux.layout.Center": [],
+  "Framework.ux.view.CardViewsContainer": [],
+  "Framework.util.ObjectUtil": [],
+  "Ext.ux.CheckColumn": [],
+  "Taxidermy.defaults.Constants": [],
   "Ext.ux.PreviewPlugin": [],
-  "Ext.ux.DataView.Animated": [],
+  "Taxidermy.ux.ImageView": [],
+  "Framework.ux.data.RestProxy": [],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [],
   "Ext.ux.ProgressBarPager": [],
-  "Ext.ux.CellDragDrop": [],
-  "Ext.ux.statusbar.StatusBar": [
-    "Ext.ux.StatusBar"
-  ],
   "Ext.ux.ajax.Simlet": [],
   "Ext.ux.SlidingPager": [],
   "Ext.ux.TabReorderer": [],
   "Ext.ux.grid.filter.NumericFilter": [],
-  "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.ux.RowExpander": [],
+  "Framework.ux.data.RestJsonReader": [],
   "Ext.ux.event.Recorder": [],
-  "Ext.ux.event.Player": [],
+  "Taxidermy.controller.MainController": [],
+  "Framework.ux.util.EnhancedComponentDragger": [],
   "Ext.ux.ajax.SimManager": [],
   "Ext.ux.grid.filter.BooleanFilter": [],
+  "Ext.ux.TabScrollerMenu": [],
+  "Taxidermy.view.Header": [],
+  "Ext.ux.IFrame": [],
+  "Taxidermy.store.SpecieItems": [],
+  "Ext.ux.form.SearchField": [],
+  "Ext.ux.LiveSearchGridPanel": [],
+  "Ext.ux.grid.filter.DateFilter": [],
+  "Ext.ux.TreePicker": [],
+  "Framework.core.ViewsManager": [],
+  "Ext.ux.data.PagingMemoryProxy": [
+    "Ext.data.PagingMemoryProxy"
+  ],
+  "Ext.ux.BoxReorderer": [],
+  "Ext.ux.grid.filter.Filter": [],
+  "Framework.core.LocalizationManager": [],
+  "Ext.ux.FieldReplicator": [],
+  "Taxidermy.store.MountItems": [],
+  "Ext.ux.grid.filter.ListFilter": [],
+  "Framework.util.HotkeysUtil": [],
+  "Framework.core.ErrorsManager": [],
+  "Framework.util.FileLoader": [],
+  "Taxidermy.controller.Main": [],
+  "Framework.core.Defaults": [],
+  "Framework.core.CoreDependencies": [],
+  "Ext.ux.GMapPanel": [],
+  "Framework.core.EventBus": [],
+  "Framework.ux.view.TabViewsContainer": [],
+  "Ext.ux.GroupTabPanel": [],
+  "Ext.ux.DataView.LabelEditor": [],
+  "Ext.ux.grid.filter.StringFilter": [],
+  "Taxidermy.model.ImageItem": [],
+  "Ext.ux.GroupTreeChunker": [],
+  "Ext.ux.statusbar.ValidationStatus": [],
+  "Framework.core.FrameworkEvents": [],
+  "Ext.ux.layout.Center": [],
+  "Taxidermy.view.catalog.mount.SelectMount": [],
+  "Ext.ux.DataView.Animated": [],
+  "Taxidermy.controller.catalog.mount.SelectMountController": [],
+  "Framework.util.DragSelectionUtil": [],
+  "Framework.ux.popup.ErrorWindow": [],
+  "Taxidermy.ux.PreviewImageDisplay": [],
+  "Ext.ux.statusbar.StatusBar": [
+    "Ext.ux.StatusBar"
+  ],
+  "Framework.ux.view.BaseViewsContainer": [],
+  "Framework.core.ViewItem": [],
+  "Framework.Main": [],
+  "Ext.ux.grid.menu.RangeMenu": [],
+  "Ext.ux.RowExpander": [],
+  "Framework.core.ModelLocator": [],
+  "Framework.util.MultipleScriptInjector": [],
+  "Ext.ux.event.Player": [],
+  "Framework.util.UtilDependencies": [],
+  "Framework.ux.view.SimpleViewsContainer": [],
+  "Taxidermy.util.TaxidermyUrlUtil": [],
   "Ext.ux.ToolbarDroppable": [],
   "Ext.ux.event.Maker": [],
-  "Ext.ux.TabScrollerMenu": [],
   "Taxidermy.view.Viewport": [],
-  "Ext.ux.IFrame": [],
   "Ext.ux.DataView.Draggable": [],
   "Ext.ux.TabCloseMenu": [],
-  "Ext.ux.form.SearchField": [],
-  "Ext.ux.dd.CellFieldDropZone": [],
-  "Ext.ux.LiveSearchGridPanel": [],
-  "Ext.ux.DataTip": [],
-  "Ext.ux.grid.filter.DateFilter": [],
-  "Ext.ux.grid.filter.DateTimeFilter": [],
-  "Ext.ux.TreePicker": [],
+  "Framework.core.SecurityManager": [],
   "Ext.ux.form.ItemSelector": [
     "Ext.ux.ItemSelector"
   ],
+  "Taxidermy.ux.TaxidermyUxDependencies": [],
   "Ext.ux.ajax.JsonSimlet": [],
   "Ext.ux.Spotlight": [],
-  "Ext.ux.grid.FiltersFeature": [],
-  "Ext.ux.data.PagingMemoryProxy": [
-    "Ext.data.PagingMemoryProxy"
-  ]
+  "Framework.util.StylesUtil": [],
+  "Ext.ux.grid.FiltersFeature": []
 });Ext.ClassManager.addNameAliasMappings({
-  "Ext.ux.BoxReorderer": [],
-  "Ext.ux.grid.filter.Filter": [],
-  "Ext.ux.GroupTabRenderer": [
-    "plugin.grouptabrenderer"
+  "Taxidermy.view.MainTabContainer": [
+    "widget.maintabcontainer"
   ],
-  "Ext.ux.ajax.DataSimlet": [],
+  "Framework.ux.UxDependencies": [],
   "Ext.ux.grid.TransformGrid": [],
-  "Ext.ux.FieldReplicator": [],
-  "Ext.ux.grid.filter.ListFilter": [
-    "gridfilter.list"
+  "Ext.ux.ajax.DataSimlet": [],
+  "Taxidermy.view.catalog.specie.SelectSpecie": [
+    "widget.selectspecie"
   ],
+  "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
   ],
-  "Ext.ux.event.Driver": [],
-  "Ext.ux.dd.PanelFieldDragZone": [],
-  "Taxidermy.controller.Main": [],
   "Ext.ux.DataView.DragSelector": [],
   "Ext.ux.grid.menu.ListMenu": [],
-  "Taxidermy.view.Main": [],
-  "Ext.ux.GMapPanel": [
-    "widget.gmappanel"
+  "Taxidermy.view.Main": [
+    "widget.main"
+  ],
+  "Taxidermy.controller.catalog.specie.SelectSpecieController": [],
+  "Framework.util.MD5Util": [],
+  "Framework.ux.container.TabContainer": [
+    "widget.tabcontainer"
   ],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselectfield",
     "widget.multiselect"
   ],
-  "Ext.ux.DataView.LabelEditor": [],
-  "Ext.ux.GroupTabPanel": [
-    "widget.grouptabpanel"
+  "Framework.ux.view.CardViewsContainer": [
+    "widget.cardviewscontainer"
   ],
-  "Ext.ux.grid.filter.StringFilter": [
-    "gridfilter.string"
+  "Framework.util.ObjectUtil": [],
+  "Ext.ux.CheckColumn": [
+    "widget.checkcolumn"
   ],
-  "Ext.ux.statusbar.ValidationStatus": [],
-  "Ext.ux.layout.Center": [
-    "layout.ux.center"
-  ],
+  "Taxidermy.defaults.Constants": [],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
-  "Ext.ux.DataView.Animated": [],
+  "Taxidermy.ux.ImageView": [
+    "widget.imageview"
+  ],
+  "Framework.ux.data.RestProxy": [
+    "proxy.restproxy"
+  ],
   "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [
     "widget.eventrecordermanager"
   ],
   "Ext.ux.ProgressBarPager": [],
-  "Ext.ux.CellDragDrop": [
-    "plugin.celldragdrop"
-  ],
-  "Ext.ux.statusbar.StatusBar": [
-    "widget.statusbar"
-  ],
   "Ext.ux.ajax.Simlet": [
     "simlet.basic"
   ],
@@ -130,56 +167,128 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.grid.filter.NumericFilter": [
     "gridfilter.numeric"
   ],
-  "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.ux.RowExpander": [],
+  "Framework.ux.data.RestJsonReader": [
+    "reader.restjsonreader"
+  ],
   "Ext.ux.event.Recorder": [],
-  "Ext.ux.event.Player": [],
+  "Taxidermy.controller.MainController": [],
+  "Framework.ux.util.EnhancedComponentDragger": [
+    "widget.enhancedcomponentdragger"
+  ],
   "Ext.ux.ajax.SimManager": [],
   "Ext.ux.grid.filter.BooleanFilter": [
     "gridfilter.boolean"
   ],
-  "Ext.ux.ToolbarDroppable": [],
-  "Ext.ux.event.Maker": [],
   "Ext.ux.TabScrollerMenu": [
     "plugin.tabscrollermenu"
   ],
-  "Taxidermy.view.Viewport": [],
+  "Taxidermy.view.Header": [
+    "widget.taxidermyheader"
+  ],
   "Ext.ux.IFrame": [
     "widget.uxiframe"
   ],
-  "Ext.ux.DataView.Draggable": [],
-  "Ext.ux.TabCloseMenu": [
-    "plugin.tabclosemenu"
-  ],
+  "Taxidermy.store.SpecieItems": [],
   "Ext.ux.form.SearchField": [
     "widget.searchfield"
   ],
-  "Ext.ux.dd.CellFieldDropZone": [],
   "Ext.ux.LiveSearchGridPanel": [],
-  "Ext.ux.DataTip": [
-    "plugin.datatip"
-  ],
   "Ext.ux.grid.filter.DateFilter": [
     "gridfilter.date"
-  ],
-  "Ext.ux.grid.filter.DateTimeFilter": [
-    "gridfilter.datetime"
   ],
   "Ext.ux.TreePicker": [
     "widget.treepicker"
   ],
+  "Framework.core.ViewsManager": [],
+  "Ext.ux.data.PagingMemoryProxy": [
+    "proxy.pagingmemory"
+  ],
+  "Ext.ux.BoxReorderer": [],
+  "Ext.ux.grid.filter.Filter": [],
+  "Framework.core.LocalizationManager": [],
+  "Ext.ux.FieldReplicator": [],
+  "Taxidermy.store.MountItems": [],
+  "Ext.ux.grid.filter.ListFilter": [
+    "gridfilter.list"
+  ],
+  "Framework.util.HotkeysUtil": [],
+  "Framework.core.ErrorsManager": [],
+  "Framework.util.FileLoader": [],
+  "Taxidermy.controller.Main": [],
+  "Framework.core.Defaults": [],
+  "Framework.core.CoreDependencies": [],
+  "Ext.ux.GMapPanel": [
+    "widget.gmappanel"
+  ],
+  "Framework.core.EventBus": [],
+  "Framework.ux.view.TabViewsContainer": [
+    "widget.tabviewscontainer"
+  ],
+  "Ext.ux.GroupTabPanel": [
+    "widget.grouptabpanel"
+  ],
+  "Ext.ux.DataView.LabelEditor": [],
+  "Ext.ux.grid.filter.StringFilter": [
+    "gridfilter.string"
+  ],
+  "Taxidermy.model.ImageItem": [],
+  "Ext.ux.GroupTreeChunker": [],
+  "Ext.ux.statusbar.ValidationStatus": [],
+  "Framework.core.FrameworkEvents": [],
+  "Ext.ux.layout.Center": [
+    "layout.ux.center"
+  ],
+  "Taxidermy.view.catalog.mount.SelectMount": [
+    "widget.selectmount"
+  ],
+  "Ext.ux.DataView.Animated": [],
+  "Taxidermy.controller.catalog.mount.SelectMountController": [],
+  "Framework.util.DragSelectionUtil": [],
+  "Framework.ux.popup.ErrorWindow": [
+    "widget.errorwindow"
+  ],
+  "Taxidermy.ux.PreviewImageDisplay": [
+    "widget.previewimagedisplay"
+  ],
+  "Ext.ux.statusbar.StatusBar": [
+    "widget.statusbar"
+  ],
+  "Framework.ux.view.BaseViewsContainer": [
+    "widget.baseviewscontainer"
+  ],
+  "Framework.core.ViewItem": [],
+  "Framework.Main": [],
+  "Ext.ux.grid.menu.RangeMenu": [],
+  "Ext.ux.RowExpander": [
+    "plugin.rowexpander"
+  ],
+  "Framework.core.ModelLocator": [],
+  "Framework.util.MultipleScriptInjector": [],
+  "Ext.ux.event.Player": [],
+  "Framework.util.UtilDependencies": [],
+  "Framework.ux.view.SimpleViewsContainer": [
+    "widget.simpleviewscontainer"
+  ],
+  "Taxidermy.util.TaxidermyUrlUtil": [],
+  "Ext.ux.ToolbarDroppable": [],
+  "Ext.ux.event.Maker": [],
+  "Taxidermy.view.Viewport": [],
+  "Ext.ux.DataView.Draggable": [],
+  "Ext.ux.TabCloseMenu": [
+    "plugin.tabclosemenu"
+  ],
+  "Framework.core.SecurityManager": [],
   "Ext.ux.form.ItemSelector": [
     "widget.itemselectorfield",
     "widget.itemselector"
   ],
+  "Taxidermy.ux.TaxidermyUxDependencies": [],
   "Ext.ux.ajax.JsonSimlet": [
     "simlet.json"
   ],
   "Ext.ux.Spotlight": [],
+  "Framework.util.StylesUtil": [],
   "Ext.ux.grid.FiltersFeature": [
     "feature.filters"
-  ],
-  "Ext.ux.data.PagingMemoryProxy": [
-    "proxy.pagingmemory"
   ]
 });

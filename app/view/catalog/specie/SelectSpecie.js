@@ -20,7 +20,8 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
                         itemId: 'specieImageview',
                         store: 'SpecieItems',
                         imageViewSelectionMode: Taxidermy.defaults.Constants.IMAGE_VIEW_SELECTION_MODE_SINGLE,
-                        width: 400,
+                        width: 420,
+                        height: 560,
                         listeners: {
                             scope: this,
                             select: this.onSpecieSelectionHandler
@@ -35,6 +36,7 @@ Ext.define('Taxidermy.view.catalog.specie.SelectSpecie', {
         ];
         this.callParent(arguments);
     },
+
     onSpecieSelectionHandler: function(argImageView, argRecord){
         this.fireEvent('specieSelected', argRecord.data);
     }

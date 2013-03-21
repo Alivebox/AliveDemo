@@ -27,8 +27,6 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         }
     ],
     init:function () {
-        var tmpMountItemsStore = Ext.getStore('MountItems');
-        tmpMountItemsStore.addListener('load',this.onMountItemsLoaded,this);
         this.control({
             'selectmount': {
                 mountSelected: this.onMountSelected,
@@ -58,15 +56,6 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
             this.getDisplayImage().resetCurrentImageAngleIndex();
             this.getDisplayImage().setRotationControllerEnabled(false);
         }
-    },
-    onMountItemsLoaded: function(){
-        this.fixImageViewLayoutProblem();
-    },
-
-    fixImageViewLayoutProblem: function(){
-        this.getMountImageView().setVisible(false);
-        Ext.defer(function(){
-            this.getMountImageView().setVisible(true);
-        },500,this);
     }
+
 });

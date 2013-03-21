@@ -9623,7 +9623,7 @@ svg, vml {
   background-image: url("../images/icons_logo/turn_left_up.png");
   border: none;
   position: relative;
-  right: 75px;
+  left: 20px;
   top: 250px;
 }
 
@@ -9632,7 +9632,7 @@ svg, vml {
   border: none;
   outline: 0;
   position: relative;
-  left: 75px;
+  right: 20px;
   top: 250px;
 }
 
@@ -9668,6 +9668,11 @@ svg, vml {
   height: 600px;
 }
 
+.preview-image-container {
+  width: 600px;
+  height: 600px;
+}
+
 .main-container {
   background-color: #373d4b;
 }
@@ -9697,7 +9702,7 @@ svg, vml {
 
 .simple-views-container {
   background-color: #3f5368;
-  width: 1200px !important;
+  width: 1040px !important;
   height: 800px !important;
   margin: 0 auto !important;
 }

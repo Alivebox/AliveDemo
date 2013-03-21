@@ -2,9 +2,10 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
 
     extend:'Ext.Container',
     xtype:'previewimagedisplay',
-    layout:'column',
     isItemSelected: undefined,
     cls: 'preview-image-container',
+
+    layout: 'absolute',
 
     constructor:function () {
         this.callParent(arguments);
@@ -19,9 +20,9 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
         this.leftRotator = this.creatLeftRotator();
         this.rightRotator = this.creatRightRotator();
         this.items = [
-            this.rightRotator,
             this.previewImageDisplay,
-            this.leftRotator
+            this.leftRotator,
+            this.rightRotator
         ];
         this.callParent(arguments);
     },
