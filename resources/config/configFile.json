@@ -1,27 +1,27 @@
 {
 
-"localizationManagement": {
-"enabled": false
-},
+    "localizationManagement": {
+        "enabled": false
+    },
 
-"errorsManagement": {
-"enabled": false
-},
+    "errorsManagement": {
+        "enabled": false
+    },
 
-"viewsManagement": {
+    "viewsManagement": {
 
-"enabled": true,
+        "enabled": true,
 
-"viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
+        "viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
 
-"views": [
-{
-"name": "main",
-"package": "Taxidermy.view.Main",
-"default": true
-}
-]
+        "views": [
+            {
+                "name": "main",
+                "package": "Taxidermy.view.Main",
+                "default": true
+            }
+        ]
 
-}
+    }
 
 }

@@ -12,9 +12,9 @@ Ext.define('Taxidermy.ux.ImageView', {
     overItemCls: 'x-item-over',
     tpl: [
         '<tpl for=".">',
-        '<div class="thumb-wrap">',
+        '<div class="thumb-wrap image-preview">',
         '<div class="thumb">',
-        '<img id="{id}" src="{imageSource}" title="{name}">',
+        '<img id="{id}" src="{imageSource}" title="{name}" priority="{priority}">',
         '</div>',
         '<span>{name}</span>',
         '</div>',
@@ -23,5 +23,8 @@ Ext.define('Taxidermy.ux.ImageView', {
     initComponent: function() {
         this.getSelectionModel().setSelectionMode(this.imageViewSelectionMode);
         this.callParent();
+
+
+
     }
 });

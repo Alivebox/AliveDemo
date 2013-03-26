@@ -30,7 +30,9 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
             },
             {
                 xtype: 'previewimagedisplay',
-                itemId: 'previewimagedisplay'
+                itemId: 'previewimagedisplay',
+                leftEdgeIndex: Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_LEFT_90,
+                rightEdgeIndex: Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_RIGHT_90
             }
         ];
         this.callParent(arguments);

@@ -29,6 +29,7 @@ Ext.define('Taxidermy.view.MainTabContainer', {
                 title:'Pose'
             },
             {
+                xtype: 'selecthabitat',
                 title:'Habitat'
             }
         ];

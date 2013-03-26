@@ -3,14 +3,14 @@
         {
             "id":1,
             "name":"Life Size",
-            "imageSource":"resources/images/mounts/DeerLifeSize.png",
-            "subOptionsUrl": "DeerLifeSizePoseItems.json"
+            "imageSource":"resources/images/mounts/DeerLifeSize.jpg",
+            "subOptionsUrl": "deerHabitatItems.json"
         },
         {
             "id":2,
             "name":"Shoulder",
-            "imageSource":"resources/images/mounts/DeerShoulder.png",
-            "subOptionsUrl": "DeerShoulderPoseItems.json"
+            "imageSource":"resources/images/mounts/DeerShoulder.jpg",
+            "subOptionsUrl": "deerHabitatItems.json"
         }
     ]
 }

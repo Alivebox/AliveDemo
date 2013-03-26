@@ -20,9 +20,10 @@ Ext.define('Taxidermy.model.ImageItem', {
         {
             name:'subOptionsUrl',
             type:'string'
+        },
+        {
+            name:'priority',
+            type:'int'
         }
-
     ]
-
-
 });

@@ -3,25 +3,25 @@
         {
             "id":1,
             "name":"Deer",
-            "imageSource":"resources/images/species/Deer.png",
+            "imageSource":"resources/images/species/Deer.jpg",
             "subOptionsUrl": "deerMountItems.json"
         },
         {
             "id":2,
             "name":"Moose",
-            "imageSource":"resources/images/species/Moose.png",
+            "imageSource":"resources/images/species/Moose.jpg",
             "subOptionsUrl": "mooseMountItems.json"
         },
         {
             "id":3,
             "name":"Fox",
-            "imageSource":"resources/images/species/Fox.png",
+            "imageSource":"resources/images/species/Fox.jpg",
             "subOptionsUrl": "foxMountItems.json"
         },
         {
             "id":4,
             "name":"Wolf",
-            "imageSource":"resources/images/species/Wolf.png",
+            "imageSource":"resources/images/species/Wolf.jpg",
             "subOptionsUrl": "wolfMountItems.json"
         }
     ]

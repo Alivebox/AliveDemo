@@ -1,15 +1,9 @@
 @import '../../defaults';
 
 .main-header{
-  background-color: $globalbackgroundcolor;
+  background-color: $whitetextcolor;
+  background-image: url(../images/icons_logo/header_bg.jpg);
   width: 100%;
   height: 139px;
 }
 
-.main-header-logo{
-  background-image: url(../images/icons_logo/logo_mckenzie.png);
-  background-repeat: no-repeat;
-  background-position: left top;
-  width: 258px;
-  height: 139px;
-}

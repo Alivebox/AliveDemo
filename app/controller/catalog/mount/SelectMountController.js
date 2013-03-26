@@ -42,6 +42,11 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         }else{
             //this.getMainTabContainer().setTabsToDisableByIndexes(Taxidermy.defaults.Constants.TAB_PANEL_ENABLE_OPTIONS_SELECTED_MOUNT, Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
         }
+        if(argElement.name != "Shoulder"){
+            this.getMainTabContainer().setTabsToDisableByIndexes([4], Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_DISABLED);
+        }else{
+            this.getMainTabContainer().setTabsToDisableByIndexes([4], Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+        }
         Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name, argElement.subOptionsUrl);
         this.getDisplayImage().loadPreviewImage();
     },

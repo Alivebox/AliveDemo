@@ -1,27 +1,25 @@
 @import '../../defaults';
 
 .main-tab-container {
-  background-color: $globalbackgroundcolor;
+  background-color: $whitetextcolor;
 }
 
 .main-card-container {
-  background: $localbackgroundcolor;
+  background-image: url(../images/icons_logo/content_bg.jpg);
+  width: 1040px;
+  height: 621px;
+  overflow: hidden !important;
+  margin-top: -2px;
 }
 
 .main-toolbar{
-  background: none;
+  background-image: url(../images/icons_logo/menu_bg.jpg);
   border: none;
+  padding-left: 10px;
 }
 
 .main-toolbar .x-btn{
-  background: $whitetextcolor;
-  background: -moz-linear-gradient(top, $whitetextcolor 0%, $graytextcolor 99%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$whitetextcolor), color-stop(99%,$graytextcolor));
-  background: -webkit-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
-  background: -o-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
-  background: -ms-linear-gradient(top, $whitetextcolor 0%,$graytextcolor 99%);
-  background: linear-gradient(to bottom, $whitetextcolor 0%,$graytextcolor 99%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$whitetextcolor', endColorstr='$graytextcolor',GradientType=0 );
+  background: $darkbluecolor;
   border-radius:5px 5px 0px 0px;
   border: none !important;
   padding-right: 10px;
@@ -31,8 +29,7 @@
 }
 
 .main-toolbar .x-btn span{
-  //font-weight: bold;
-  color: $blacktextcolor;
+  color: $whitetextcolor;
   font-size: 16px;
 }
 
@@ -41,10 +38,10 @@
   background: $redselectedcolor !important;
 }
 
-.main-toolbar .x-pressed{
-  background: $redselectedcolor !important;
+.main-toolbar .x-pressed span{
+  color: $whitetextcolor !important;
 }
 
-.main-toolbar .x-pressed span{
+.main-toolbar .x-item-disabled span {
   color: $whitetextcolor !important;
 }

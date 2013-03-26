@@ -24,7 +24,8 @@ Ext.application({
     controllers: [
         'MainController',
         'catalog.specie.SelectSpecieController',
-        'catalog.mount.SelectMountController'
+        'catalog.mount.SelectMountController',
+        'catalog.habitat.SelectHabitatController'
     ],
 
     launch:function () {

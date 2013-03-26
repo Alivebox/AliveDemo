@@ -5,8 +5,7 @@ Ext.define('Taxidermy.view.Header', {
     initComponent:function () {
         this.items = [
             {
-                xtype:'container',
-                cls: 'main-header-logo'
+                xtype:'container'
             }
         ];
         this.callParent(arguments);

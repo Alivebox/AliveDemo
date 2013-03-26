@@ -4,6 +4,8 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     xtype:'previewimagedisplay',
     isItemSelected: undefined,
     cls: 'preview-image-container',
+    rightEdgeIndex: undefined,
+    leftEdgeIndex: undefined,
 
     layout: 'absolute',
 
@@ -28,7 +30,7 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     },
 
     resetCurrentImageAngleIndex: function(){
-        this.currentImageAngleIndex = Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_LEFT_90;
+        this.currentImageAngleIndex = this.leftEdgeIndex;
     },
 
     resetCurrentImageDisplay: function(){
@@ -129,10 +131,10 @@ Ext.define('Taxidermy.ux.PreviewImageDisplay', {
     },
 
     isRotationIndexOnLeftEdge: function(){
-        return (this.currentImageAngleIndex == Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_LEFT_90) || !this.isItemSelected;
+        return (this.currentImageAngleIndex == this.leftEdgeIndex) || !this.isItemSelected;
     },
 
     isRotationIndexOnRightEdge: function(){
-        return (this.currentImageAngleIndex == Taxidermy.defaults.Constants.IMAGE_PREVIEW_ANGLE_INDEX_RIGHT_90) ||  !this.isItemSelected;
+        return (this.currentImageAngleIndex == this.rightEdgeIndex) ||  !this.isItemSelected;
     }
 });

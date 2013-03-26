@@ -3,6 +3,7 @@ Ext.define('Taxidermy.view.Main', {
     xtype:'main',
 
     initComponent:function () {
+        Ext.getBody().setStyle('overflow', 'auto');
         this.items = [
             {
                 xtype:'taxidermyheader',
