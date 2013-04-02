@@ -38,7 +38,8 @@ Ext.define('Taxidermy.defaults.Constants',{
         TAB_PANEL_DISABLE_OPTIONS_RESETED_BASE: [4],
         TAB_PANEL_DISABLE_OPTIONS_UNSELECTED_SPECIE: [1,2,3,4],
         TAB_PANEL_BUTTON_DISABLED: true,
-        TAB_PANEL_BUTTON_ENABLED: false
+        TAB_PANEL_BUTTON_ENABLED: false,
+        NO_PRIORITY: 0
     }
 
 });

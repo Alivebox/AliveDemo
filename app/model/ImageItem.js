@@ -24,6 +24,10 @@ Ext.define('Taxidermy.model.ImageItem', {
         {
             name:'priority',
             type:'int'
+        },
+        {
+            name:'depends',
+            type:'Array'
         }
     ]
 });

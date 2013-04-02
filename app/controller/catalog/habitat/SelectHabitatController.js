@@ -30,13 +30,22 @@ Ext.define('Taxidermy.controller.catalog.habitat.SelectHabitatController', {
         this.control({
             'selecthabitat': {
                 habitatSelected: this.onHabitatSelected,
-                initDataView: this.onInitDataView,
-                boxready: this.addEventImagePreview
+                habitatDeselected: this.onHabitatDeselected,
+                initDataView: this.onInitDataView
             }
         });
     },
     onHabitatSelected: function(argElement){
         this.selectedElement = argElement;
+        var tmpSelectedModel = this.getHabitatImageView().getSelectionModel();
+        Taxidermy.util.TaxidermyUrlUtil.selectMultipleOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT,this.selectedElement, tmpSelectedModel);
+        this.getDisplayImage().loadPreviewImage();
+    },
+    onHabitatDeselected: function(argElement){
+        this.selectedElement = argElement;
+        var tmpSelectedModel = this.getHabitatImageView().getSelectionModel();
+        Taxidermy.util.TaxidermyUrlUtil.deselectMultipleOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT,this.selectedElement, tmpSelectedModel);
+        this.getDisplayImage().loadPreviewImage();
     },
     onInitDataView: function(){
         var tmpMountSelectedOptions = Taxidermy.util.TaxidermyUrlUtil.getOptionByType(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT);
@@ -51,23 +60,5 @@ Ext.define('Taxidermy.controller.catalog.habitat.SelectHabitatController', {
         }
         this.getDisplayImage().loadPreviewImage();
         this.getDisplayImage().setRotationControllerEnabled(true);
-    },
-
-    addEventImagePreview:function(abstractcomponent, width, height, options){
-        habitatEl = abstractcomponent.getEl();
-        habitatEl.on('click', this.imagePreviewClick, this, { delegate: '.image-preview' });
-    },
-
-
-    imagePreviewClick:function(argEvent,argElement){
-        debugger;
-        var isItemSelected =  argElement.className.indexOf("selected") != -1;
-        if(isItemSelected){
-            Taxidermy.util.TaxidermyUrlUtil.selectMultipleOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT,this.selectedElement.name, this.selectedElement.subOptionsUrl);
-        }else{
-            Taxidermy.util.TaxidermyUrlUtil.deselectMultipleOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT,this.selectedElement.name, this.selectedElement.subOptionsUrl);
-        }
-        this.getDisplayImage().loadPreviewImage();
     }
-
 });

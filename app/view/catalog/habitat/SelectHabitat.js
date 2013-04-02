@@ -23,7 +23,8 @@ Ext.define('Taxidermy.view.catalog.habitat.SelectHabitat', {
                         height: 560,
                         listeners: {
                             scope: this,
-                            select: this.onHabitatSelectionHandler
+                            select: this.onHabitatSelectionHandler,
+                            deselect:this.onHabitatDeselectionHandler
                         }
                     }
                 ]
@@ -39,6 +40,9 @@ Ext.define('Taxidermy.view.catalog.habitat.SelectHabitat', {
     },
     onHabitatSelectionHandler: function(argImageView, argRecord){
         this.fireEvent('habitatSelected', argRecord.data);
+    },
+    onHabitatDeselectionHandler: function(argImageView, argRecord){
+        this.fireEvent('habitatDeselected', argRecord.data);
     }
 
 });
