@@ -9,7 +9,7 @@ Ext.define('Taxidermy.util.TaxidermyUrlUtil', {
     selectUniqueOption:function (argType, argValue, argSource) {
         var tmpElement = this.getOptionByType(argType);
         if (tmpElement != undefined) {
-            tmpElement.options = [argValue];
+            tmpElement.options = [{'name':argValue,'priority':Taxidermy.defaults.Constants.NO_PRIORITY}];
             tmpElement.storeSource = argSource;
             return;
         }
