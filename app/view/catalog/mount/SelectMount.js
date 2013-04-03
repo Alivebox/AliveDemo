@@ -40,5 +40,4 @@ Ext.define('Taxidermy.view.catalog.mount.SelectMount', {
     onMountSelectionHandler: function(argImageView, argRecord){
         this.fireEvent('mountSelected', argRecord.data);
     }
-
 });

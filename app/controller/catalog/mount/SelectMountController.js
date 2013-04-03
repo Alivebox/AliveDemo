@@ -50,6 +50,14 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
         Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,argElement.name, argElement.subOptionsUrl);
         this.getDisplayImage().loadPreviewImage();
     },
+    loadTabSelectedItem:function(){
+        var tmpSelectedModel = this.getMountImageView().getSelectionModel();
+        var tmpSelectedItem = tmpSelectedModel.getSelection()[0].data;
+        if(tmpSelectedItem.name == "Shoulder"){
+            this.getMainTabContainer().setTabsToDisableByIndexes([4], Taxidermy.defaults.Constants.TAB_PANEL_BUTTON_ENABLED);
+            Taxidermy.util.TaxidermyUrlUtil.selectUniqueOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT,tmpSelectedItem.name, tmpSelectedItem.subOptionsUrl);
+        }
+    },
     onInitDataView: function(){
         var tmpSpecieSelectedOptions = Taxidermy.util.TaxidermyUrlUtil.getOptionByType(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_SPECIE);
         if(this.storeDataSource == undefined || this.storeDataSource != tmpSpecieSelectedOptions.storeSource){
@@ -60,7 +68,9 @@ Ext.define('Taxidermy.controller.catalog.mount.SelectMountController', {
             this.getDisplayImage().resetCurrentImageDisplay();
             this.getDisplayImage().resetCurrentImageAngleIndex();
             this.getDisplayImage().setRotationControllerEnabled(false);
+            return;
         }
+        this.loadTabSelectedItem();
     }
 
 });

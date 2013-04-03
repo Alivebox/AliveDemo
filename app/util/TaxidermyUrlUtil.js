@@ -142,6 +142,7 @@ Ext.define('Taxidermy.util.TaxidermyUrlUtil', {
                 tmpImageUrl = tmpImageUrl+ (tmpOption.name.toLowerCase()).replace(" ", "")+"_";
             }
         }
+        console.log("URL: "+tmpImageUrl+argAngle+Taxidermy.defaults.Constants.IMAGE_FILES_EXTENSION);
         return tmpImageUrl+argAngle+Taxidermy.defaults.Constants.IMAGE_FILES_EXTENSION;
     }
 });

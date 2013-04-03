@@ -47,6 +47,16 @@ Ext.define('Taxidermy.controller.catalog.habitat.SelectHabitatController', {
         Taxidermy.util.TaxidermyUrlUtil.deselectMultipleOption(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT,this.selectedElement, tmpSelectedModel);
         this.getDisplayImage().loadPreviewImage();
     },
+    cleanUnselected:function(){
+        var tmpHabitatSelected = Taxidermy.util.TaxidermyUrlUtil.getOptionByType(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_HABITAT);
+        //it's means that changeTab or unselected all habitats
+        if(tmpHabitatSelected == undefined){
+            this.getHabitatImageView().getSelectionModel().deselectAll();
+            this.getDisplayImage().resetCurrentImageDisplay();
+            this.getDisplayImage().resetCurrentImageAngleIndex();
+            this.getDisplayImage().loadPreviewImage();
+        }
+    },
     onInitDataView: function(){
         var tmpMountSelectedOptions = Taxidermy.util.TaxidermyUrlUtil.getOptionByType(Taxidermy.defaults.Constants.TAXIDERMY_OPTION_TYPE_MOUNT);
         if(this.storeDataSource == undefined || this.storeDataSource != tmpMountSelectedOptions.storeSource){
@@ -56,9 +66,10 @@ Ext.define('Taxidermy.controller.catalog.habitat.SelectHabitatController', {
             this.storeDataSource = tmpMountSelectedOptions.storeSource;
             this.getDisplayImage().resetCurrentImageDisplay();
             this.getDisplayImage().resetCurrentImageAngleIndex();
-            this.getDisplayImage().setRotationControllerEnabled(false);
+            this.getDisplayImage().loadPreviewImage();
+            this.getDisplayImage().setRotationControllerEnabled(true);
+            return;
         }
-        this.getDisplayImage().loadPreviewImage();
-        this.getDisplayImage().setRotationControllerEnabled(true);
+        this.cleanUnselected();
     }
 });
