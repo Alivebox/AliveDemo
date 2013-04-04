@@ -2,6 +2,9 @@ Ext.define('Taxidermy.defaults.Constants',{
 
     statics: {
         ITEM_NOT_FOUND_INDEX: -1,
+        TAXIDERMY_VIEW_INDEX_SPECIE: 0,
+        TAXIDERMY_VIEW_INDEX_MOUNT: 1,
+        TAXIDERMY_VIEW_INDEX_HABITAT: 2,
         TAXIDERMY_OPTION_TYPE_SPECIE: "SPECIE",
         TAXIDERMY_OPTION_TYPE_MOUNT: "MOUNT",
         TAXIDERMY_OPTION_TYPE_POSE: "POSE",

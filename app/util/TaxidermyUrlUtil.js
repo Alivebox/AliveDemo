@@ -134,15 +134,15 @@ Ext.define('Taxidermy.util.TaxidermyUrlUtil', {
         return Taxidermy.defaults.Constants.ITEM_NOT_FOUND_INDEX;
     },
     generateImageUrl:function (argAngle) {
+        var tmpViewIndex = Framework.core.ModelLocator.tabIndex;
         var tmpImageUrl = "";
-        for (var elementIndex in this.configurationOptions) {
-            var tmpElement = this.configurationOptions[elementIndex];
+        for(var index=0; index <this.configurationOptions.length && index <= tmpViewIndex; index++){
+            var tmpElement = this.configurationOptions[index];
             for (var optionIndex in tmpElement.options) {
                 var tmpOption = tmpElement.options[optionIndex];
                 tmpImageUrl = tmpImageUrl+ (tmpOption.name.toLowerCase()).replace(" ", "")+"_";
             }
         }
-        console.log("URL: "+tmpImageUrl+argAngle+Taxidermy.defaults.Constants.IMAGE_FILES_EXTENSION);
         return tmpImageUrl+argAngle+Taxidermy.defaults.Constants.IMAGE_FILES_EXTENSION;
     }
 });

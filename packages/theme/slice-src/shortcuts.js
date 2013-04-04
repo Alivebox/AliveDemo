@@ -1,4 +1,28 @@
-$Shortcuts = {
+/*
+ * This file defines the core framework "shortcuts". These are the modes and states of the
+ * various components keyed by their xtype.
+ * 
+ * To add more shortcuts for an xtype to a derived theme, call Ext.theme.addShortcuts in
+ * a theme-specific file and script tag that file in to that theme's 'theme.html' file.
+ */
+Ext.theme.addShortcuts({
+    'tooltip': [{
+        setup: function(component, ct) {
+            component.render(Ext.getBody());
+            component.showBy(ct);
+            ct.setHeight(component.getHeight());
+            ct.dom.appendChild(component.el.dom);
+            component.el.setLeft(0);
+            component.el.setTop(0);
+        },
+        config: {
+            width: 100,
+            height: 40,
+            shadow: false,
+            hide: function(){}
+        }
+    }],
+
     'widget.buttongroup': [
         {
             folder: 'btn-group',
@@ -70,7 +94,7 @@ $Shortcuts = {
             xtype: 'widget.progressbar',
             folder: 'progress',
             filename: 'progress-{ui}',
-            delegate: '.x-progress-bar',
+            delegate: '.' + Ext.baseCSSPrefix + 'progress-bar',
             config: {
                 width: 100,
                 value: 1,
@@ -83,6 +107,7 @@ $Shortcuts = {
         {
             xtype: 'widget.tabpanel',
             filename: 'tabpanel-{ui}',
+            stretch: 'bottom',
             config: {
                 height: 200,
                 width: 200,
@@ -99,7 +124,8 @@ $Shortcuts = {
             xtype: 'widget.tabpanel',
             filename: 'tab-bar-{ui}',
             folder: 'tab-bar',
-            delegate: '.x-tab-bar',
+            delegate: '.' + Ext.baseCSSPrefix + 'tab-bar',
+            stretch: 'bottom',
             offsets: {
                 bottom: 3,
                 left: 1
@@ -109,195 +135,104 @@ $Shortcuts = {
                 items: [{
                     text: 'Tab 1'
                 }],
-                width: 300
+                width: 300,
+                listeners: {
+                    afterRender: function(comp) {
+                        comp.el.down('.' + Ext.baseCSSPrefix + 'tab-bar-body')
+                            .setStyle("visibility", "hidden");
+                        comp.el.down('.' + Ext.baseCSSPrefix + 'tab-bar-strip')
+                            .setStyle("visibility", "hidden");
+                        comp.el.down('.' + Ext.baseCSSPrefix + 'panel-body')
+                            .setStyle("visibility", "hidden");
+                    }
+                }
             }
         },
         {
             filename: 'tab-{ui}-top',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
-                text: 'Normal Top Tab'
+                text: 'Normal Top Tab',
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-top-active',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
+                text: 'Active Top Tab',
                 active: true,
-                text: 'Active Top Tab'
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-top-over',
+            over: true,
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
-                cls: 'x-tab-over x-tab-top-over',
-                text: 'Over Top Tab'
+                text: 'Over Top Tab',
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-top-disabled',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
-                disabled: true,
-                text: 'Disabled Top Tab'
+                text: 'Disabled Top Tab',
+                closable: false,
+                disabled: true
             }
         },
         {
             filename: 'tab-{ui}-bottom',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
+                text: 'Normal Bottom Tab',
                 position: 'bottom',
-                text: 'Normal Bottom Tab'
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-bottom-active',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
+                text: 'Active Bottom Tab',
                 position: 'bottom',
                 active: true,
-                text: 'Active Bottom Tab'
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-bottom-over',
+            over: true,
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
+                text: 'Over Bottom Tab',
                 position: 'bottom',
-                cls: 'x-tab-over x-tab-bottom-over',
-                text: 'Over Bottom Tab'
+                closable: false
             }
         },
         {
             filename: 'tab-{ui}-bottom-disabled',
+            stretch: 'bottom',
             config: {
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == 'tabbar') {
-                        return {
-                            minTabWidth: 20,
-                            maxTabWidth: 80
-                        };
-                    }
-                },
+                text: 'Disabled Bottom Tab',
                 position: 'bottom',
-                disabled: true,
-                text: 'Disabled Bottom Tab'
+                closable: false,
+                disabled: true
             }
         }
     ],
 
     'widget.window': [
+        // Floating
         {
-            xtype: 'widget.header',
-            filename: 'window-header-{ui}-top',
-            folder: 'window-header',
-            config: {
-                title: 'Window Header',
-                baseCls: 'x-window-header',
-                dock: 'top'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            filename: 'window-header-{ui}-bottom',
-            folder: 'window-header',
-            config: {
-                title: 'Window Header',
-                baseCls: 'x-window-header',
-                dock: 'bottom'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            filename: 'window-header-{ui}-left',
-            folder: 'window-header',
-            config: {
-                title: 'Window Header',
-                baseCls: 'x-window-header',
-                dock: 'left'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            filename: 'window-header-{ui}-right',
-            folder: 'window-header',
-            config: {
-                title: 'Window Header',
-                baseCls: 'x-window-header',
-                dock: 'right'
-            }
-        },
-        {
-            xtype: 'widget.window',
             filename: 'window-{ui}',
             title: 'Window',
             config: {
-                setup: function(window, ct) {
-                    this.show();
-                },
-                floating: {shadow:false},
+                closable: false,
                 height: 200,
                 width: 200,
-                x: 500,
-                y: 10,
                 fbar: {
                     items: [{
                         text: 'Submit'
@@ -309,194 +244,283 @@ $Shortcuts = {
                     }]
                 }
             }
-        }
-    ],
-
-    'widget.panel': [
-        //framed panel
+        },
+        // window w/header
         {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-top',
-            offsets: {
-                left: 1
-            },
+            stretch: 'bottom',
+            filename: 'window-header-{ui}-top',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
             config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                dock: 'top',
-                ui: '{ui}-framed'
+                title: 'Top Window',
+                closable: false,
+                width: 200,
+                html: '&#160;',
+                headerPosition: 'top'
             }
         },
         {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-bottom',
-            reverse: true,
-            offsets: {
-                left: 1
-            },
+            stretch: 'top',
+            filename: 'window-header-{ui}-bottom',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
             config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                dock: 'bottom',
-                ui: '{ui}-framed'
+                title: 'Bottom Window',
+                closable: false,
+                width: 200,
+                html: '&#160;',
+                headerPosition: 'bottom'
             }
         },
         {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-left',
+            stretch: 'right',
+            filename: 'window-header-{ui}-left',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
             config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
+                title: 'Left Window',
+                closable: false,
                 height: 200,
-                dock: 'left',
-                orientation: 'vertical',
-                ui: '{ui}-framed'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-right',
-            reverse: true,
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                height: 200,
-                dock: 'right',
-                orientation: 'vertical',
-                ui: '{ui}-framed'
-            }
-        },
-
-        {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-collapsed-top',
-            offsets: {
-                left: 1
-            },
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                cls: 'x-collapsed x-panel-header-collapsed x-panel-header-{ui}-framed-collapsed x-collapsed-top x-panel-header-collapsed-top x-panel-header-{ui}-framed-collapsed-top',
-                dock: 'top',
-                ui: '{ui}-framed'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-collapsed-bottom',
-            reverse: true,
-            offsets: {
-                left: 1
-            },
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                cls: 'x-collapsed x-panel-header-collapsed x-panel-header-{ui}-framed-collapsed x-collapsed-bottom x-panel-header-collapsed-bottom x-panel-header-{ui}-framed-collapsed-bottom',
-                dock: 'bottom',
-                ui: '{ui}-framed'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-collapsed-left',
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                cls: 'x-collapsed x-panel-header-collapsed x-panel-header-{ui}-framed-collapsed x-collapsed-left x-panel-header-collapsed-left x-panel-header-{ui}-framed-collapsed-left',
-                height: 200,
-                dock: 'left',
-                orientation: 'vertical',
-                ui: '{ui}-framed'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-framed-collapsed-right',
-            reverse: true,
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                cls: 'x-collapsed x-panel-header-collapsed x-panel-header-{ui}-framed-collapsed x-collapsed-right x-panel-header-collapsed-right x-panel-header-{ui}-framed-collapsed-right',
-                height: 200,
-                dock: 'right',
-                orientation: 'vertical',
-                ui: '{ui}-framed'
-            }
-        },
-
-        {
-            xtype: 'widget.panel',
-            filename: 'panel-{ui}-framed',
-            config: {
-                height: 180,
-                width: 250,
-                frame: true,
-                html: 'Framed panel'
-            }
-        },
-
-        //panel
-        {
-            xtype: 'widget.header',
-            filename: 'panel-header-{ui}-top',
-            offsets: {
-                left: 1
-            },
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                dock: 'top'
-            }
-        },
-        {
-            xtype: 'widget.header',
-            filename: 'panel-header-{ui}-bottom',
-            reverse: true,
-            offsets: {
-                left: 1
-            },
-            config: {
-                title: 'Header',
-                baseCls: 'x-panel-header',
-                dock: 'bottom'
-            }
-        },
-        {
-            xtype: 'widget.panel',
-            folder: 'panel-header',
-            filename: 'panel-header-{ui}-left',
-            delegate: '.x-panel-header',
-            offsets: {
-                top: 3
-            },
-            config: {
-                height: 180,
-                width: 250,
-                title: 'test',
+                width: 200,
                 headerPosition: 'left'
             }
         },
         {
-            xtype: 'widget.panel',
+            stretch: 'left',
+            filename: 'window-header-{ui}-right',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
+            config: {
+                title: 'Right Window',
+                closable: false,
+                height: 200,
+                width: 200,
+                headerPosition: 'right'
+            }
+        },
+        // collapsed window w/header
+        {
+            stretch: 'bottom',
+            filename: 'window-header-{ui}-collapsed-top',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
+            config: {
+                title: 'Top Collapsed',
+                collapsed: true,
+                closable: false,
+                expandOnShow: false,
+                width: 200,
+                headerPosition: 'top'
+            }
+        },
+        {
+            stretch: 'top',
+            filename: 'window-header-{ui}-collapsed-bottom',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
+            config: {
+                title: 'Bottom Collapsed',
+                collapsed: true,
+                closable: false,
+                expandOnShow: false,
+                width: 200,
+                headerPosition: 'bottom'
+            }
+        },
+        {
+            stretch: 'right',
+            filename: 'window-header-{ui}-collapsed-left',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
+            config: {
+                title: 'Left Collapsed',
+                collapsed: true,
+                closable: false,
+                expandOnShow: false,
+                height: 200,
+                width: 200,
+                headerPosition: 'left'
+            }
+        },
+        {
+            stretch: 'left',
+            filename: 'window-header-{ui}-collapsed-right',
+            folder: 'window-header',            
+            delegate: '.' + Ext.baseCSSPrefix + 'window-header',
+            config: {
+                title: 'Right Collapsed',
+                collapsed: true,
+                closable: false,
+                expandOnShow: false,
+                height: 200,
+                width: 200,
+                headerPosition: 'right'
+            }
+        }
+    ], // window
+
+    'widget.panel': [
+        {
+            config: {
+                width: 200,
+                frame: true,
+                html: 'Framed panel'
+            }
+        },
+        // panel w/header
+        {
+            stretch: 'bottom',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-top',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Top',
+                width: 200,
+                html: '&#160;',
+                headerPosition: 'top'
+            }
+        },
+        {
+            stretch: 'top',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-bottom',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Bottom',
+                width: 200,
+                html: '&#160;',
+                headerPosition: 'bottom'
+            }
+        },
+        {
+            stretch: 'right',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-left',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Left',
+                height: 200,
+                width: 200,
+                headerPosition: 'left'
+            }
+        },
+        {
+            stretch: 'left',
             folder: 'panel-header',
             filename: 'panel-header-{ui}-right',
-            reverse: true,
-            delegate: '.x-panel-header',
-            offsets: {
-                top: 3
-            },
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
             config: {
-                height: 180,
-                width: 250,
-                title: 'test',
+                title: 'Right',
+                height: 200,
+                width: 200,
+                headerPosition: 'right'
+            }
+        },
+        // framed panel w/header
+        {
+            stretch: 'bottom',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-top',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Top Framed',
+                width: 200,
+                frame: true,
+                html: '&#160;',
+                headerPosition: 'top'
+            }
+        },
+        {
+            stretch: 'top',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-bottom',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Bottom Framed',
+                width: 200,
+                frame: true,
+                html: '&#160;',
+                headerPosition: 'bottom'
+            }
+        },
+        {
+            stretch: 'right',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-left',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Left Framed',
+                height: 200,
+                width: 200,
+                frame: true,
+                headerPosition: 'left'
+            }
+        },
+        {
+            stretch: 'left',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-right',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Right Framed',
+                height: 200,
+                width: 200,
+                frame: true,
+                headerPosition: 'right'
+            }
+        },
+        // collapsed framed panel w/header
+        {
+            stretch: 'bottom',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-collapsed-top',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Top Framed/Collapsed',
+                collapsed: true,
+                width: 200,
+                frame: true,
+                headerPosition: 'top'
+            }
+        },
+        {
+            stretch: 'top',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-collapsed-bottom',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Bottom Framed/Collapsed',
+                collapsed: true,
+                width: 200,
+                frame: true,
+                headerPosition: 'bottom'
+            }
+        },
+        {
+            stretch: 'right',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-collapsed-left',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Left Framed/Collapsed',
+                collapsed: true,
+                height: 200,
+                width: 200,
+                frame: true,
+                headerPosition: 'left'
+            }
+        },
+        {
+            stretch: 'left',
+            folder: 'panel-header',
+            filename: 'panel-header-{ui}-framed-collapsed-right',
+            delegate: '.' + Ext.baseCSSPrefix + 'panel-header',
+            config: {
+                title: 'Right Framed/Collapsed',
+                collapsed: true,
+                height: 200,
+                width: 200,
+                frame: true,
                 headerPosition: 'right'
             }
         }
@@ -505,6 +529,7 @@ $Shortcuts = {
     'widget.toolbar': [
         {
             filename: 'toolbar-{ui}',
+            stretch: 'bottom',
             config: {
                 width: 200,
                 items: [{
@@ -517,6 +542,7 @@ $Shortcuts = {
     'widget.button': [
         //small button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-small',
             config: {
                 scale: 'small',
@@ -525,30 +551,34 @@ $Shortcuts = {
         },
         {
             filename: 'btn-{ui}-small-over',
+            stretch: 'bottom',
+            over: true,
             config: {
                 scale: 'small',
-                text: 'Button',
-                cls: 'x-btn-{ui}-small-over'
+                text: 'Button'
             }
         },
         {
             filename: 'btn-{ui}-small-focus',
+            stretch: 'bottom',
             config: {
                 scale: 'small',
                 text: 'Button',
-                cls: 'x-btn-{ui}-small-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-small-focus'
             }
         },
         {
             filename: 'btn-{ui}-small-pressed',
+            stretch: 'bottom',
             config: {
                 scale: 'small',
                 text: 'Button',
-                cls: 'x-btn-{ui}-small-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-small-pressed'
             }
         },
         {
             filename: 'btn-{ui}-small-disabled',
+            stretch: 'bottom',
             config: {
                 scale: 'small',
                 text: 'Button',
@@ -558,6 +588,7 @@ $Shortcuts = {
 
         //medium button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-medium',
             config: {
                 scale: 'medium',
@@ -565,30 +596,34 @@ $Shortcuts = {
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-medium-over',
+            over: true,
             config: {
                 scale: 'medium',
-                text: 'Button',
-                cls: 'x-btn-{ui}-medium-over'
+                text: 'Button'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-medium-focus',
             config: {
                 scale: 'medium',
                 text: 'Button',
-                cls: 'x-btn-{ui}-medium-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-medium-focus'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-medium-pressed',
             config: {
                 scale: 'medium',
                 text: 'Button',
-                cls: 'x-btn-{ui}-medium-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-medium-pressed'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-medium-disabled',
             config: {
                 scale: 'medium',
@@ -599,6 +634,7 @@ $Shortcuts = {
 
         //large button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-large',
             config: {
                 scale: 'large',
@@ -606,30 +642,34 @@ $Shortcuts = {
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-large-over',
+            over: true,
             config: {
                 scale: 'large',
-                text: 'Button',
-                cls: 'x-btn-{ui}-large-over'
+                text: 'Button'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-large-focus',
             config: {
                 scale: 'large',
                 text: 'Button',
-                cls: 'x-btn-{ui}-large-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-large-focus'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-large-pressed',
             config: {
                 scale: 'large',
                 text: 'Button',
-                cls: 'x-btn-{ui}-large-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-large-pressed'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-large-disabled',
             config: {
                 scale: 'large',
@@ -640,6 +680,7 @@ $Shortcuts = {
 
         //small toolbar button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-small',
             config: {
                 scale: 'small',
@@ -648,33 +689,37 @@ $Shortcuts = {
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-small-over',
+            over: true,
             config: {
                 scale: 'small',
                 ui: '{ui}-toolbar',
-                text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-small-over'
+                text: 'Button'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-small-focus',
             config: {
                 scale: 'small',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-small-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-small-focus'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-small-pressed',
             config: {
                 scale: 'small',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-small-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-small-pressed'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-small-disabled',
             config: {
                 scale: 'small',
@@ -686,6 +731,7 @@ $Shortcuts = {
 
         //medium toolbar button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-medium',
             config: {
                 scale: 'medium',
@@ -694,33 +740,37 @@ $Shortcuts = {
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-medium-over',
+            over: true,
             config: {
                 scale: 'medium',
                 ui: '{ui}-toolbar',
-                text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-medium-over'
+                text: 'Button'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-medium-focus',
             config: {
                 scale: 'medium',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-medium-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-medium-focus'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-medium-pressed',
             config: {
                 scale: 'medium',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-medium-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-medium-pressed'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-medium-disabled',
             config: {
                 scale: 'medium',
@@ -732,6 +782,7 @@ $Shortcuts = {
 
         //large toolbar button
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-large',
             config: {
                 scale: 'large',
@@ -740,33 +791,37 @@ $Shortcuts = {
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-large-over',
+            over: true,
             config: {
                 scale: 'large',
                 ui: '{ui}-toolbar',
-                text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-large-over'
+                text: 'Button'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-large-focus',
             config: {
                 scale: 'large',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-large-focus'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-large-focus'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-large-pressed',
             config: {
                 scale: 'large',
                 ui: '{ui}-toolbar',
                 text: 'Button',
-                cls: 'x-btn-{ui}-toolbar-large-pressed'
+                cls: Ext.baseCSSPrefix + 'btn-{ui}-toolbar-large-pressed'
             }
         },
         {
+            stretch: 'bottom',
             filename: 'btn-{ui}-toolbar-large-disabled',
             config: {
                 scale: 'large',
@@ -776,4 +831,5 @@ $Shortcuts = {
             }
         }
     ]
-};
+
+});

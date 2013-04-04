@@ -39,6 +39,7 @@ Ext.define('Taxidermy.controller.catalog.specie.SelectSpecieController', {
     },
 
     onSelectSpecieAfterRender: function(argOwnerCt){
+        Framework.core.ModelLocator.tabIndex = Taxidermy.defaults.Constants.TAXIDERMY_VIEW_INDEX_SPECIE;
         this.getDisplayImage().setRotationControllerEnabled(false);
     },
 

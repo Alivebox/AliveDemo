@@ -1,9 +1,16 @@
-$Manifest = {
-    widgets: [
+/*
+ * This file defines the core framework "manifest". These are the components and ui's
+ * common to all themes.
+ * 
+ * To add more components or ui's to a derived theme, call Ext.theme.addManifest in a
+ * theme-specific file and script tag that file in to that theme's 'theme.html' file.
+ */
+Ext.theme.addManifest(
         {
             xtype: 'widget.menu',
             folder: 'menu',
-            delegate: '.x-menu-item-link',
+            stretch: 'bottom',
+            delegate: '.' + Ext.baseCSSPrefix + 'menu-item-link',
             filename: 'menu-item-active',
             config: {
                 floating: false,
@@ -11,7 +18,7 @@ $Manifest = {
                 items: [
                     {
                         text: 'test',
-                        cls: 'x-menu-item-active'
+                        cls: Ext.baseCSSPrefix + 'menu-item-active'
                     }
                 ]
             }
@@ -61,31 +68,14 @@ $Manifest = {
         {
             xtype: 'widget.tooltip',
             filename: 'tip',
-            config: {
-                width: 100,
-                height: 40,
-                setup: function(component, ct) {
-                    component.render(ct);
-                    component.showBy(ct);
-                    ct.setHeight(component.height);
-                },
-                hide: function(){}
-            }
+            ui: 'default'
         },
         {
             xtype: 'widget.tooltip',
-            folder: 'form-invalid-tip',
+            ui: 'default',
             filename: 'form-invalid-tip',
             config: {
-                baseCls: Ext.baseCSSPrefix + 'form-invalid-tip',
-                width: 100,
-                height: 40,
-                setup: function(component, ct) {
-                    component.render(ct);
-                    component.showBy(ct);
-                    ct.setHeight(component.height);
-                },
-                hide: function(){}
+                baseCls: Ext.baseCSSPrefix + 'form-invalid-tip'
             }
         },
 
@@ -96,16 +86,9 @@ $Manifest = {
             xtype: 'widget.gridcolumn',
             folder: 'grid',
             filename: 'column-header',
+            stretch: 'bottom',
             config: {
                 text: 'test',
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == "tablepanel") {
-                        return {
-                            sortableColumns: true
-                        };
-                    }
-                },
                 afterRender: function() {
                     var me = this,
                         el = me.el;
@@ -122,16 +105,9 @@ $Manifest = {
             xtype: 'widget.gridcolumn',
             folder: 'grid',
             filename: 'column-header-over',
+            stretch: 'bottom',
             config: {
                 text: 'test',
-                //hack for 4.0.5
-                up: function(which) {
-                    if (which == "tablepanel") {
-                        return {
-                            sortableColumns: true
-                        };
-                    }
-                },
                 afterRender: function() {
                     var me = this,
                         el = me.el;
@@ -141,7 +117,7 @@ $Manifest = {
                     el.setStyle({
                         position: 'relative'
                     });
-                    el.addCls('x-column-header-over');
+                    el.addCls(Ext.baseCSSPrefix + 'column-header-over');
                 }
             }
         },
@@ -153,7 +129,7 @@ $Manifest = {
         //     xtype: 'widget.gridpanel',
         //     folder: 'grid',
         //     filename: 'cell-special',
-        //     delegate: '.x-grid-cell-special',
+        //     delegate: '.' + Ext.baseCSSPrefix + 'grid-cell-special',
         //     config: {
         //         selModel: Ext.create('Ext.selection.CheckboxModel'),
         //         store: Ext.create('Ext.data.ArrayStore', {
@@ -176,7 +152,7 @@ $Manifest = {
         //     xtype: 'widget.gridpanel',
         //     folder: 'grid',
         //     filename: 'cell-special-selected',
-        //     delegate: '.x-grid-cell-special',
+        //     delegate: '.' + Ext.baseCSSPrefix + 'grid-cell-special',
         //     cls: 'x-grid-row-selected',
         //     config: {
         //         selModel: Ext.create('Ext.selection.CheckboxModel'),
@@ -204,13 +180,14 @@ $Manifest = {
             xtype: 'widget.datepicker',
             folder: 'datepicker',
             filename: 'datepicker-header',
-            delegate: '.x-datepicker-header'
+            stretch: 'bottom',
+            delegate: '.' + Ext.baseCSSPrefix + 'datepicker-header'
         },
         {
             xtype: 'widget.datepicker',
             folder: 'datepicker',
             filename: 'datepicker-footer',
-            delegate: '.x-datepicker-footer'
+            stretch: "bottom",
+            delegate: '.' + Ext.baseCSSPrefix + 'datepicker-footer'
         }
-    ]
-};
+);
